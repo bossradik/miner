@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Подземелье Шахтёра</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+            background-color: #121214;
+            color: white;
+            padding: 15px;
+            margin: 0;
+            user-select: none;
+        }
+        h1 { font-size: 24px; }
+        button {
+            padding: 18px 36px;
+            font-size: 20px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff9800, #e65100);
+            border: none;
+            border-radius: 14px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+            cursor: pointer;
+            width: 90%;
+            max-width: 300px;
+        }
+        button:active { transform: scale(0.94); }
+        #status {
+            font-size: 18px;
+            color: #ffeb3b;
+            min-height: 48px;
+            margin: 15px 0;
+        }
+        .inventory {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+            min-width: 220px;
+        }
+        .inventory p { margin: 8px 0; }
+        b { color: #00e676; }
+    </style>
+</head>
+<body>
+    <h1>⛏️ Подземелье Шахтёра</h1>
+    <div id="status">Нажми "КОПАТЬ", чтобы начать!</div>
+    <button id="btn">⛏️ КОПАТЬ ПОРОДУ!</button>
+    <div class="inventory">
+        <h3>🎒 Твой инвентарь:</h3>
+        <p>🪨 Камень: <b id="stone">0</b></p>
+        <p>⛓️ Железо: <b id="iron">0</b></p>
+        <p>🪙 Золото: <b id="gold">0</b></p>
+        <p>💎 Алмазы: <b id="diamond">0</b></p>
+    </div>
+    <script>
+        const tg = window.Telegram?.WebApp;
+        if (tg) { tg.ready(); tg.expand(); }
+        let stone = 0, iron = 0, gold = 0, diamond = 0;
+        document.getElementById('btn').onclick = function() {
+            let rand = Math.random() * 100;
+            let statusText = "";
+            if (rand < 5) {
+                diamond++;
+                statusText = "💎 ОГО! ВЫ НАШЛИ АЛМАЗ!";
+                document.getElementById('diamond').innerText = diamond;
+                tg?.HapticFeedback?.notificationOccurred('success');
+            } else if (rand < 15) {
+                gold++;
+                statusText = "🪙 Вы выкопали Золото!";
+                document.getElementById('gold').innerText = gold;
+                tg?.HapticFeedback?.impactOccurred('medium');
+            } else if (rand < 35) {
+                iron++;
+                statusText = "⛓️ Вы выкопали Железо!";
+                document.getElementById('iron').innerText = iron;
+                tg?.HapticFeedback?.impactOccurred('light');
+            } else {
+                stone++;
+                statusText = "🪨 Вы выкопали Камень.";
+                document.getElementById('stone').innerText = stone;
+                tg?.HapticFeedback?.impactOccurred('light');
+            }
+            document.getElementById('status').innerText = statusText;
+        };
+    </script>
+</body>
+</html>
