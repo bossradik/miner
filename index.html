@@ -1,11 +1,163 @@
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Подключаем EJS как шаблонизатор
+app.set('view engine', 'ejs');
+
+/**
+ * ВАШИ ФУНКЦИИ РАБОТЫ С БАЗОЙ ДАННЫХ ИЛИ LOCALSTORAGE
+ *
+ * Здесь должны быть ваши функции getUserState() и saveUserState().
+ * Они нужны для загрузки и сохранения состояния игрока.
+ */
+
+// Массив всех кирок (скопирован из вашего старого JS-кода)
+const pickaxes = [
+    { name: "🪵 Деревянная", power: 1, cost: 0 },
+    { name: "🪨 Каменная", power: 2, cost: 50 },
+    { name: "⛓️ Железная", power: 5, cost: 150 },
+    { name: "🥇 Золотая", power: 12, cost: 400 },
+    { name: "💎 Алмазная", power: 30, cost: 1000 },
+    { name: "🔥 Обсидиановая", power: 60, cost: 2500 },
+    { name: "🌈 Радужная", power: 100, cost: 5000 },
+    { name: "🧲 Древняя", power: 200, cost: 10_000 },
+    { name: "🖤 Метеоритная", power: 400, cost: 20_000 },
+    { name: "🦾 Звёздная", power: 1000, cost: 50_000 }
+];
+
+// Основной маршрут — отправка интерфейса игры
+app.get('/', async (req, res) => {
+    const userId = req.query.user_id; // Telegram Web App передаёт ID пользователя через query-параметры
+    if (!userId) return res.sendStatus(400);
+
+    let userState = await getUserState(userId); // Ваша функция получения данных
+    
+    // Вычисляем количество ударов до следующей кирки
+    let clicksToNext = null;
+    if (userState.next_pick) {
+        clicksToNext = Math.ceil(userState.next_pick.cost / userState.pickaxe.power);
+    }
+
+    // Рендерим основной интерфейс
+    res.render('index.ejs', {
+        ...userState,
+        clicks_to_next: clicksToNext,
+        pickaxes: JSON.stringify(pickaxes), // Передаём массив кирок на клиент
+    });
+});
+
+// Роут Магазина инструментов
+app.get('/shop', async (req, res) => {
+    const userId = req.query.user_id;
+    const userState = await getUserState(userId);
+
+    let html = `
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    
-    <!-- ПОДКЛЮЧЕНИЕ БИБЛИОТЕКИ ДЛЯ ЗАЩИТЫ СОХРАНЕНИЙ -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <title>Магазин инструментов</title>
+    <!-- ВАЖНО! Подключите стили основного файла -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="game-container">
+    <h1>🛍 Магазин инструментов</h1>
+    <table style="width:100%; text-align:center; margin-top:20px;">
+      <tr><th>Название</th><th>Сила</th><th>Цена</th><th>Действие</th></tr>
+`;
 
+    for(let i = 0; i <= pickaxes.length; i++) {
+        const isCurrent = i === userState.pickaxeLevel - 1;
+        const canBuy = i === userState.pickaxeLevel && userState.coins >= pickaxes[i].cost;
+
+        html += `<tr>
+          <td>${isCurrent ? '<strong>[Экипирована]</strong>' : pickaxes[i]?.name || '-'}</td>
+          <td>${pickaxes[i]?.power || '-'}</td>
+          <td>${canBuy ? `${pickaxes[i].cost} 🪙` : '-'} ${isCurrent ? '(бесплатно)' : ''}</td>
+          <td>`;
+
+        if(canBuy) {
+            html += `<button onclick="fetch('/action/buy_pickaxe?id=${i}', {method:'POST'}); return false;">Купить</button>`;
+        }
+        html += '</td></tr>';
+    }
+
+    html += `
+    </table>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</body>
+</html>
+`;
+
+    res.send(html);
+});
+
+// Действия игрока
+app.post('/action/:command', async (req, res) => {
+    const command = req.params.command;
+    const userId = req.body.user_id;
+
+    try {
+        const userState = await getUserState(userId);
+
+        switch(command) {
+            case 'mine':
+                // Ваш существующий код копания
+                break;
+
+            case 'sell_stone':
+                // Ваш существующий код продажи камня
+                break;
+
+            case 'buy_pickaxe': {
+                const pickaxeId = parseInt(req.body.id);
+                const nextPick = pickaxes[pickaxeId];
+
+                // Проверяем валидность запроса
+                if (!nextPick || pickaxeId !== userState.pickaxeLevel) {
+                    return res.json({status: 'error', message: 'Неверный запрос.'});
+                }
+
+                // Проверяем монеты
+                const cost = nextPick.cost;
+                if (userState.coins < cost) {
+                    return res.json({status: 'error', message: 'Недостаточно монет!'});
+                }
+
+                // Покупаем!
+                userState.coins -= cost;
+                userState.pickaxeLevel++;
+                userState.upgrades++; // Для достижения
+
+                await saveUserState(userState); // Ваша функция сохранения
+
+                return res.json({
+                    status: 'success',
+                    message: `🛠 Куплена новая кирка!`,
+                    updateFields: ['coins', 'pickaxeLevel', 'upgrades']
+                });
+            }
+
+            default:
+                throw new Error(`Неизвестное действие: ${command}`);
+        }
+    } catch(err) {
+        console.error(err);
+        return res.status(500).json({status: 'error'});
+    }
+});
+
+// Стартуем сервер
+app.listen(port, () => {
+    console.log(`Сервер запущен на порту ${port}`);
+});
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
     <style>
+        /* ВАШ СТИЛЬ ИЗ ПРОШЛОГО КОДА */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #2c3e50;
@@ -18,8 +170,7 @@
             overflow-x: hidden; 
         }
         
-        /* ВАШИ СТИЛИ */
-        .game-container { ... } /* Оставьте свои стили здесь */
+        .game-container { ... } /* Оставьте ваши стили здесь */
 
         [data-icon]::before,
         [data-pickaxe]::before {
@@ -62,6 +213,29 @@
             transform: none;
         }
 
+        a.open-shop-btn > button {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+            background-color: #3498db; /* Синий цвет */
+            color: white;
+        }
+
+        a.open-shop-btn > button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+        }
+
+        .upgrade-hint {
+            font-size: 14px;
+            color: #bdc3c7;
+            margin-bottom: 10px;
+        }
+
         /* ❤️ МОДАЛЬНОЕ ОКНО СОВЕТА (ПОКАЗЫВАЕТСЯ ПРИ ЗАГРУЗКЕ ИГРЫ) */
         .modal-backdrop {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -95,7 +269,7 @@
 </head>
 <body>
 <div class="game-container">
-    <!-- Ваш заголовок уже выводится Telegram, его можно убрать из кода -->
+    <!-- Заголовок уже выводится Telegram, его можно убрать из кода -->
     <!-- <h1>⛏️ Моя Тыкалка</h1> -->
 
     <!-- Статистика игрока -->
@@ -117,15 +291,15 @@
     <div class="stat-row"><span data-icon="stone">Камень:</span><span id="stone">{{ stone }}</span></div>
     <div class="stat-row"><span data-icon="iron">Железо:</span><span id="iron">{{ iron }}</span></div>
     <div class="stat-row"><span data-icon="gold">Золото:</span><span id="ghost">{{ gold }}</span></div>
-    <div class="stat-row"><span data-icon="diamond">Алмазы:</span><span id="diamond">{{ diamond }}</span></div>
+    <div class="stat-row"><span data="diamond">Алмазы:</span><span id="diamond">{{ diamond }}</span></div>
     <div class="stat-row"><span>🪙 Монеты:</span><span id="coins">{{ coins }}</span></div>
 
     <!-- Магазин и Рынок -->
     <div class="shop-section">
         <div class="stat-row"><span data-pickaxe="wood">Текущая кирка:</span><span id="pickaxeName">{{ pickaxe_name }} (Сила: {{ pickaxe_power }})</span></div>
 
-        {% if next_pick %}
-          <!-- Подсказка о том, сколько ударов осталось для апгрейда -->
+        {% if clicks_to_next %}
+          <!-- Подсказка о том, сколько ударов до следующей кирки -->
           <div class="upgrade-hint">
               До следующего уровня: ~{{ clicks_to_next|round(0) }} ударов
           </div>
@@ -136,8 +310,8 @@
         {% endif %}
 
         <!-- НОВАЯ КНОПКА МАГАЗИНА -->
-        <a href="/shop" class="open-shop-btn">
-            🛒 Открыть магазин инструментов
+        <a href="/shop?user_id={{ user_id }}" class="open-shop-btn">
+            <button>🛒 Открыть магазин инструментов</button>
         </a>
 
         <!-- Ваша старая кнопка продажи камня остаётся без изменений -->
@@ -161,7 +335,6 @@
       <div class="modal-window">
         <span class="modal-close-btn" onclick="document.querySelector('.modal-backdrop').classList.remove('active')">×</span>
         <h3>Добро пожаловать в игру!</h3>
-        <p>Ваша цель — копать ресурсы и улучшать инструменты.</p>
         <ol>
           <li>Используйте энергию, чтобы добывать камни и редкие металлы.</li>
           <li>Продавайте камень за монеты.</li>
@@ -185,7 +358,30 @@ if (tg) { tg.ready(); tg.expand(); }
 let tapPopInstance = null;
 function showTapPop(text, event) {
     const container = document.getElementById('btnContainer');
-    // Остальное скопировано из вашей версии
+    if (!tapPopInstance) {
+        tapPopInstance = document.createElement('div');
+        tapPopInstance.className = 'tap-pop';
+        container.appendChild(tapPopInstance);
+    }
+    tapPopInstance.textContent = text;
+    
+    // Позиционируем по центру кнопки
+    const rect = container.getBoundingClientRect();
+    let x = rect.width / 2;
+    let y = rect.height / 2;
+    
+    if(event) {
+        const btnRect = event.target.getBoundingClientRect();
+        x = (btnRect.left + btnRect.right) / 2 - rect.left;
+        y = (btnRect.top + btnRect.bottom) / 2 - rect.top;
+    }
+    
+    tapPopInstance.style.left = `${x}px`;
+    tapPopInstance.style.top = `${y}px`;
+    tapPopInstance.style.transform = 'translate(-50%, -50%) scale(0)';
+    
+    void tapPopInstance.offsetWidth; // Перезапуск анимации
+    tapPopInstance.style.transform = 'translate(-50%, -50%) scale(1)';
 }
 
 document.getElementById('mineBtn').addEventListener('click', function() {
@@ -203,122 +399,11 @@ document.getElementById('sellStoneBtn').addEventListener('click', function() {
         body: JSON.stringify({user_id: '{{ user_id }}'})
     });
 });
+
+@* Если вы используете Pug/Jade, оберните весь скрипт в тег script *@
 </script>
+
+<!-- ЭТО ОБЯЗАТЕЛЬНЫЙ ТЕГ ДЛЯ POPUP'ов -->
+<div class="tap-pop"></div>
 </body>
 </html>
-<!-- Магазин и Рынок -->
-<div class="shop-section">
-    <div class="stat-row"><span data-pickaxe="wood">Текущая кирка:</span><span id="pickaxeName">{{ pickaxe_name }} (Сила: {{ pickaxe_power }})</span></div>
-    
-    <!-- Подсказка о том, сколько ударов до следующей кирки -->
-    {% if next_pick %}
-        <p class="upgrade-hint" style="font-size: 14px; color:#bdc3c7;">До следующего уровня: ~{{ clicks_to_next|round(0) }} ударов</p>
-    {% else %}
-        <p class="upgrade-hint" style="font-size: 14px; color:#bdc3c7;">Вы достигли максимального уровня инструментов!</p>
-    {% endif %}
-
-    <!-- НОВАЯ КНОПКА МАГАЗИНА -->
-    <a href="/shop?user_id={{ user_id }}" class="open-shop-btn">
-        <button>🛒 Открыть магазин инструментов</button>
-    </a>
-
-    <!-- Ваша старая кнопка продажи камня остаётся без изменений -->
-    <button id="sellStoneBtn">💰 Продать 10 Камня<br><small>+5 🪙</small></button>
-</div>
-// Роут для страницы магазина
-app.get('/shop', async (req, res) => {
-  // Получаем ID пользователя из query-параметров
-  const userId = req.query.user_id;
-  const userState = await getUserState(userId); // Ваша функция загрузки данных
-
-  // Массив всех кирок (скопирован из вашей старой логики)
-  const pickaxes = [
-    { name: "🪵 Деревянная", power: 1, cost: 0 },
-    { name: "🪨 Каменная", power: 2, cost: 50 },
-    { name: "⛓️ Железная", power: 5, cost: 150 },
-    { name: "🥇 Золотая", power: 12, cost: 400 },
-    { name: "💎 Алмазная", power: 30, cost: 1000 },
-    { name: "🔥 Обсидиановая", power: 60, cost: 2500 },
-    { name: "🌈 Радужная", power: 100, cost: 5000 },
-    { name: "🧲 Древняя", power: 200, cost: 10_000 },
-    { name: "🖤 Метеоритная", power: 400, cost: 20_000 },
-    { name: "🦾 Звёздная", power: 1000, cost: 50_000 }
-  ];
-
-  let html = `
-<!DOCTYPE html>
-<head>
-  <meta charset="UTF-8">
-  <title>Магазин инструментов</title>
-  <link rel="stylesheet" href="styles.css"> <!-- ВАШ ФАЙЛ СТИЛЕЙ -->
-</head>
-<body>
-  <h1>Магазин инструментов</h1>
-  <table style="width:100%; text-align:center; margin-top:20px;">
-    <tr>
-      <th>Название</th>
-      <th>Сила</th>
-      <th>Цена</th>
-      <th>Действие</th>
-    </tr>
-`;
-
-  for(let i = 0; i <= pickaxes.length; i++) {
-    const isCurrent = i === userState.pickaxeLevel - 1;
-    const canBuy = i === userState.pickaxeLevel && userState.coins >= pickaxes[i].cost;
-
-    html += `<tr>
-      <td>${isCurrent ? '<strong>[Экипирована]</strong>' : pickaxes[i]?.name || 'Нет'}</td>
-      <td>${pickaxes[i]?.power || '-'}</td>
-      <td>${canBuy ? `${pickaxes[i].cost} 🪙` : '-'} ${isCurrent ? '(бесплатно)' : ''}</td>
-      <td>`;
-
-    if(canBuy) {
-      html += `<a href="#" onclick="fetch('/action/buy_pickaxe?id=${i}', {method:'POST'}); return false;">Купить</a>`;
-    }
-    html += '</td></tr>';
-  }
-
-  html += `
-  </table>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
-  <script>
-    // Ваш старый скрипт showTapPop можно оставить тут,
-    // но он не нужен для этой простой страницы
-  </script>
-</body>
-</html>
-`;
-
-  res.send(html);
-});
-if(command === 'mine') {...}
-else if(command === 'sell_stone') {...}
-else if(command === 'buy_pickaxe') {
-  const pickaxeId = parseInt(req.body.id);
-  const user = await getUserState(req.body.user_id);
-
-  // Проверяем валидность запроса
-  if (!pickaxeId || !user.next_pick || pickaxeId !== user.pickaxeLevel) {
-    return res.json({status: 'error', message: 'Неверный запрос.'});
-  }
-
-  // Проверяем монеты
-  const cost = user.next_pick.cost;
-  if (user.coins < cost) {
-    return res.json({status: 'error', message: 'Недостаточно монет!'});
-  }
-
-  // Покупаем!
-  user.coins -= cost;
-  user.pickaxeLevel++;
-  user.upgrades++; // Для достижения
-
-  saveUserState(user); // Ваша функция сохранения
-
-  return res.json({
-    status: 'success',
-    message: `🛠 Куплена новая кирка!`,
-    updateFields: ['coins', 'pickaxeLevel', 'upgrades']
-  });
-}
