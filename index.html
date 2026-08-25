@@ -17,12 +17,12 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow-x: hidden; /* Убрал вертикальный скролл */
+            overflow-x: hidden;
         }
         .game-container {
             width: 90%;
             max-width: 400px;
-            padding-bottom: 60px; /* Для подвала */
+            padding-bottom: 60px;
             background: linear-gradient(145deg, #34495e, #2c3e50);
             border-radius: 20px;
             padding: 20px;
@@ -43,7 +43,7 @@
             margin: 6px 0;
             font-size: 16px;
         }
-        [data-icon]::before { /* Иконки ресурсов */
+        [data-icon]::before {
             content: '';
             display: inline-block;
             vertical-align: middle;
@@ -55,7 +55,7 @@
             background-size: contain;
         }
         [data-icon='stone']::before {background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 class=%22lucide lucide-rocks%22%3E%3Cg transform=%22translate(-7 -1)%22%3E%3Cpath d=%22M18.5 1v11a1 1 0 0 0 1 1h7m-7 1v11a1 1 0 0 0 1 1H23%22/%3E%3Cline x1=%2210%22 y1=%2214%22 x2=%2210%22 y2=%2223%22/%3E%3Cline x1=%2210%22 y1=%2214%22 x2=%224%22 y2=%2214%22/%3E%3Cline x1=%224%22 y1=%2214%22 x2=%224%22 y2=%2223%22/%3E%3C/g%3E%3C/svg%3E');}
-        [data-pickaxe]::before { /* Иконки кирок */
+        [data-pickaxe]::before {
             content: '';
             display: inline-block;
             vertical-align: middle;
@@ -67,10 +67,10 @@
             background-size: contain;
         }
         [data-pickaxe='wood']::before {background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 class=%22lucide lucide-hammer%22%3E%3Cg transform=%22translate(-7 -1)%22%3E%3Cpath d=%22M13.5 1v11a1 1 0 0 0 1 1h7m-7 1v11a1 1 0 0 0 1 1H23%22/%3E%3Cline x1=%2210%22 y2=%2223%22/%3E%3Cline x1=%2210%22 y1=%2214%22 x2=%224%22 y2=%2214%22/%3E%3Cline x1=%224%22 y1=%2214%22 x2=%224%22 y2=%2223%22/%3E%3C/g%3E%3C/svg%3E');}
-        [data-pickaxe='stone']::before {background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 class=%22lucide lucide-hammer%22%3E%3Cg transform=%22translate(-7 -1)%22%3E%3Cpath d=%22M13.5 1v11a1 1 0 0 0 1 1h7m-7 1v11a1 1 0 0 0 1 1H23%22/%3E%3Cline x1=%2210%22 y2=%2223%22/%3E%3Cline x1=%2210%22 y1=%2214%22 x2=%224%22 y2=%2214%22/%3E%3Cline x1=%224%22 y1=%2214%22 x2=%224%22 y2=%2223%22/%3E%3C/g%3E%3C/svg%3E'); filter: brightness(1.2) grayscale(0.7);}
-        [data-pickaxe='iron']::before {background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 class=%22lucide lucide-hammer%22%3E%3Cg transform=%22translate(-7 -1)%22%3E%3Cpath d=%22M13.5 1v11a1 1 0 0 0 1 1h7m-7 1v11a1 1 0 0 0 1 1H23%22/%3E%3Cline x1=%2210%22 y2=%2223%22/%3E%3Cline x1=%2210%22 y1=%2214%22 x2=%224%22 y2=%2214%22/%3E%3Cline x1=%224%22 y1=%2214%22 x2=%224%22 y2=%2223%22/%3E%3C/g%3E%3C/svg%3E'); filter: hue-rotate(200deg);} /* синий */
-        [data-pickaxe='gold']::before {background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 class=%22lucide lucide-hammer%22%3E%3Cg transform=%22translate(-7 -1)%22%3E%3Cpath d=%22M13.5 1v11a1 1 0 0 0 1 1h7m-7 1v11a1 1 0 0 0 1 1H23%22/%3E%3Cline x1=%2210%22 y2=%2223%22/%3E%3Cline x1=%2210%22 y1=%2214%22 x2=%224%22 y2=%2214%22/%3E%3Cline x1=%224%22 y1=%2214%22 x2=%224%22 y2=%2223%22/%3E%3C/g%3E%3C/svg%3E'); filter: sepia(1) saturate(10);} /* золото */
-        [data-pickaxe='diamond']::before {background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewViewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 class=%22lucide lucide-hammer%22%3E%3Cg transform=%22translate(-7 -1)%22%3E%3Cpath d=%22M13.5 1v11a1 1 0 0 0 1 1h7m-7 1v11a1 1 0 0 0 1 1H23%22/%3E%3Cline x1=%2210%22 y2=%2223%22/%3E%3Cline x1=%2210%22 y1=%2214%22 x2=%224%22 y2=%2214%22/%3E%3Cline x1=%224%22 y1=%2214%22 x2=%224%22 y2=%2223%22/%3E%3C/g%3E%3C/svg%3E'); filter: contrast(1.5) brightness(1.5);}
+        [data-pickaxe='stone']::before {filter: brightness(1.2) grayscale(0.7);}
+        [data-pickaxe='iron']::before {filter: hue-rotate(200deg);}
+        [data-pickaxe='gold']::before {filter: sepia(1) saturate(10);}
+        [data-pickaxe='diamond']::before {filter: contrast(1.5) brightness(1.5);}
         
         .progress-bar {
             width: 100%;
@@ -135,17 +135,6 @@
                 transform: scale(1) translateY(-30px);
                 opacity: 0;
             }
-        }
-
-        /* Таймер счастливых часов */
-        .happy-timer {
-            font-size: 14px;
-            color: #bdc3c7;
-            margin-bottom: 10px;
-        }
-        .happy-active {
-            color: #27ae60 !important;
-            font-style: italic;
         }
 
         /* ❤️ СТИЛИ ДОСТИЖЕНИЙ */
@@ -225,7 +214,7 @@
 
     <!-- Магазин и Рынок -->
     <div class="shop-section">
-        <div class="happy-timer">Следующий шанс счастья через <span id="nextHappyTime">...</span></div>
+        <!-- Блок со временем счастья полностью удален -->
         <div class="stat-row"><span data-pickaxe="wood">Текущая кирка:</span><span id="pickaxeName">Загрузка...</span></div>
         <button id="buyPickBtn">⛏️ Улучшить кирку<br><small id="pickaxeCost">50 🪙</small></button>
         <button id="sellStoneBtn">💰 Продать 10 Камня<br><small>+5 🪙</small></button>
@@ -286,32 +275,29 @@
 const tg = window.Telegram?.WebApp;
 if (tg) { tg.ready(); tg.expand(); }
 
-// ✅ УЛУЧШЕННАЯ ЗАЩИТА
 function calculateChecksum(obj) {
     const cleanObj = Object.fromEntries(Object.entries(obj).filter(([k]) => k !== 'checksum'));
     return CryptoJS.SHA256(JSON.stringify(cleanObj)).toString();
 }
 
-// Проверяет целостность данных перед КАЖДОЙ операцией
 function verifySave() {
     if (!game.checksum || game.checksum !== calculateChecksum(game)) {
         throw new Error("Save corrupted");
     }
 }
 
-// Список ВСЕХ кирок (с иконками)
+// Список ВСЕХ кирок
 const pickaxes = [
     { name: "🪵 Деревянная", power: 1, cost: 0 },
     { name: "🪨 Каменная", power: 2, cost: 50 },
     { name: "⛓️ Железная", power: 5, cost: 150 },
     { name: "🥇 Золотая", power: 12, cost: 400 },
     { name: "💎 Алмазная", power: 30, cost: 1000 },
-    // Новые виды!
-    { name: "🔥 Обсидиановая", power: 60, cost: 2500 }, // Obsidian
-    { name: "🌈 Радужная", power: 100, cost: 5000 }, // Rainbow
-    { name: "🧲 Древняя", power: 200, cost: 10_000 }, // Ancient
-    { name: "🖤 Метеоритная", power: 400, cost: 20_000 }, // Meteorite
-    { name: "🦾 Звёздная", power: 1000, cost: 50_000 } // Star
+    { name: "🔥 Обсидиановая", power: 60, cost: 2500 },
+    { name: "🌈 Радужная", power: 100, cost: 5000 },
+    { name: "🧲 Древняя", power: 200, cost: 10_000 },
+    { name: "🖤 Метеоритная", power: 400, cost: 20_000 },
+    { name: "🦾 Звёздная", power: 1000, cost: 50_000 }
 ];
 
 let game = JSON.parse(localStorage.getItem('miner_save')) || {};
@@ -319,7 +305,6 @@ try {
     verifySave();
     delete game.checksum;
 } catch (e) {
-    // Если сейва нет или он сломан, создаём новый профиль
     game = {
         stone: 0,
         iron: 0,
@@ -332,26 +317,53 @@ try {
         xp: 0,
         xpToLevel: 50,
         pickaxeLevel: 1,
-        happyUntil: Date.now(), // Время окончания бонуса
-        nextHappyAt: Date.now() + Math.random() * 3600000, // Следующее событие через 0–1 час
-        actions: 0, // Счётчик кликов для достижения
-        upgrades: 0, // Счётчик улучшений кирки
-        soldStones: 0, // Счётчик проданных камней
-        soldGold: 0, // Счётчик проданного золота
-        findRare: false, // Флаг нахождения первого алмаза
-        richMan: false, // Флаг накопления 1000 монет
-        powerfulMiner: 0, // Счётчик добытых алмазов
-        superUpgrade: false, // Флаг апгрейда до золотой
-        legendaryUpgrade: false // Флаг апгрейда до алмазной
+        actions: 0,
+        upgrades: 0,
+        soldStones: 0,
+        soldGold: 0,
+        findRare: false,
+        richMan: false,
+        powerfulMiner: 0,
+        superUpgrade: false,
+        legendaryUpgrade: false
     };
+}
+
+// Для оптимизации попапов создадим один элемент заранее
+let tapPopInstance = null;
+function showTapPop(text, event) {
+    const container = document.getElementById('btnContainer');
+    if (!tapPopInstance) {
+        tapPopInstance = document.createElement('div');
+        tapPopInstance.className = 'tap-pop';
+        container.appendChild(tapPopInstance);
+    }
+    tapPopInstance.textContent = text;
+    
+    // Позиционируем по центру кнопки
+    const rect = container.getBoundingClientRect();
+    let x = rect.width / 2;
+    let y = rect.height / 2;
+    
+    if(event) {
+        const btnRect = event.target.getBoundingClientRect();
+        x = (btnRect.left + btnRect.right) / 2 - rect.left;
+        y = (btnRect.top + btnRect.bottom) / 2 - rect.top;
+    }
+    
+    tapPopInstance.style.left = `${x}px`;
+    tapPopInstance.style.top = `${y}px`;
+    tapPopInstance.style.transform = 'translate(-50%, -50%) scale(0)';
+    
+    void tapPopInstance.offsetWidth; // Перезапуск анимации
+    tapPopInstance.style.transform = 'translate(-50%, -50%) scale(1)';
 }
 
 function saveGame() {
     try {
-        verifySave(); // Пытаемся проверить данные ещё раз
+        verifySave();
     } catch(e) {}
 
-    // Сохраняем прогресс всех достижений
     for(let key in achievements) {
         game[key] = achievements[key].progress;
     }
@@ -374,15 +386,15 @@ function updateUI() {
     document.getElementById('level').innerText = game.level;
     document.getElementById('xp').innerText = game.xp;
     document.getElementById('xpToLevel').innerText = game.xpToLevel;
-    document.getElementById('xpFill').style.width = ((game.xp / game.xpToLevel) * 100).toFixed(1) + "%"; // ЭТО БЫЛ ПРОПУСК В ПРЕДЫДУЩЕМ КОДЕ
+    document.getElementById('xpFill').style.width = ((game.xp / game.xpToLevel) * 100).toFixed(1) + "%";
 
     // Кирка
     const currentPickIndex = Math.min(game.pickaxeLevel - 1, pickaxes.length - 1);
     const currentPick = pickaxes[currentPickIndex];
     document.getElementById('pickaxeName').textContent = `${currentPick.name} (Сила: ${currentPick.power})`;
 
-    // Иконка кирки только если она есть в CSS
-    let iconClass = currentPick.name.toLowerCase().split(' ').at(0);
+    // Иконка кирки
+    let iconClass = currentPick.name.toLowerCase().split(' ').pop(); // Используем последнее слово (Wooden -> wood)
     if ([...document.styleSheets[0].cssRules].some(rule => rule.selectorText === `[data-pickaxe="${iconClass}"]`)) {
         document.querySelector('.stat-row span[data-pickaxe]').setAttribute('data-pickaxe', iconClass);
     }
@@ -406,28 +418,9 @@ function updateUI() {
         mineBtn.innerText = `⛏️ КОПАТЬ!`;
     }
 
-    // 🍀 СЧАСТЛИВЫЕ ЧАСЫ
-    let timeLeftMs = game.nextHappyAt - Date.now();
-    if (timeLeftMs > 0 && Date.now() >= game.happyUntil) {
-        // Начинаем счастливый час
-        game.happyUntil = Date.now() + 180000; // 3 минуты
-        showTapPop(`🍀 НАЧАЛИСЬ СЧАСТЛИВЫЕ ЧАСЫ!`, null);
-    }
-
-    if (Date.now() < game.happyUntil) {
-        document.getElementById('nextHappyTime').classList.add('happy-active');
-        document.getElementById('nextHappyTime').textContent = `🍀 СЧАСТЛИВЫЕ ЧАСЫ (${Math.floor(timeLeftMs / 1000)} сек.)`;
-    } else {
-        document.getElementById('nextHappyTime').classList.remove('happy-active');
-        timeLeftMs = game.nextHappyAt - Date.now();
-        const minutes = Math.floor(timeLeftMs / 60000);
-        const seconds = String(Math.floor((timeLeftMs % 60000) / 1000)).padStart(2,'0');
-        document.getElementById('nextHappyTime').textContent = `Через ${minutes}:${seconds}`;
-    }
-
     // ✅ ОБНОВЛЕНИЕ ИНТЕРФЕЙСА ДОСТИЖЕНИЙ
     for(const item of document.querySelectorAll('.ach-item')) {
-        const id = item.id.slice(4); // Убираем префикс "ach-" чтобы получить имя переменной
+        const id = item.id.slice(4); 
         let progress = game[id] ?? 0;
         const target = parseInt(item.dataset.target);
         
@@ -439,10 +432,100 @@ function updateUI() {
     }
 }
 
-function showTapPop(text, event) {
-    const container = document.getElementById('btnContainer');
-    const pop = document.createElement('div');
-    pop.className = 'tap-pop';
-    pop.textContent = text;
-    const rect = container.getBoundingClientRect();
-    let x = rect.width
+// Объект достижений для синхронизации прогресса
+const achievements = {
+    digging_starter: { progress: 0 },
+    digging_master: { progress: 0 },
+    seller_stone: { progress: 0 },
+    upgrade_pick: { progress: 0 },
+    find_rare: { progress: 0 },
+    rich_man: { progress: 0 },
+    powerful_miner: { progress: 0 },
+    super_upgrade: { progress: 0 },
+    legendary_upgrade: { progress: 0 }
+};
+
+// Загружаем прогресс ачивок из сейва
+for(let key in achievements) {
+    if(game[key] !== undefined) {
+        achievements[key].progress = game[key];
+    }
+}
+
+document.getElementById('mineBtn').addEventListener('click', function() {
+    if (game.energy <= 0) return;
+
+    game.actions++;
+    game.energy--;
+    game.xp += game.level * 2;
+
+    // Базовый дроп камня
+    let minedStone = pickaxes[game.pickaxeLevel - 1].power;
+    
+    // Шанс на железо, золото, алмазы (без счастливых часов!)
+    const roll = Math.random();
+    if (roll < 0.01 && game.pickaxeLevel >= 5) {
+        game.diamond++;
+        game.powerfulMiner++;
+        if (!game.findRare) game.findRare = true;
+        showTapPop(`💎 Вы нашли АЛМАЗ!`, event);
+    } else if (roll < 0.05 && game.pickaxeLevel >= 3) {
+        game.gold++;
+        showTapPop(`✨ Слиток золота!`, event);
+    } else if (roll < 0.15 && game.pickaxeLevel >= 2) {
+        game.iron++;
+        showTapPop(`⛓️ Кусок железа!`, event);
+    } else {
+        game.stone += minedStone;
+        showTapPop(`+${minedStone} 🪨`, event);
+    }
+
+    // Прокачка уровня
+    while (game.xp >= game.xpToLevel) {
+        game.xp -= game.xpToLevel;
+        game.level++;
+        game.xpToLevel = Math.floor(game.xpToLevel * 1.5);
+        game.maxEnergy += 20;
+        game.energy = game.maxEnergy; // Полное восстановление энергии при левел-апе
+    }
+
+    updateUI();
+    saveGame();
+});
+
+document.getElementById('buyPickBtn').addEventListener('click', function() {
+    const nextPick = pickaxes[game.pickaxeLevel];
+    if (game.coins >= nextPick.cost) {
+        game.coins -= nextPick.cost;
+        game.pickaxeLevel++;
+        game.upgrades++;
+        showTapPop(`🛠 Куплена новая кирка!`, event);
+        updateUI();
+        saveGame();
+    }
+});
+
+document.getElementById('sellStoneBtn').addEventListener('click', function() {
+    if (game.stone >= 10) {
+        game.stone -= 10;
+        game.soldStones += 10;
+        game.coins += 5;
+        showTapPop(`💸 Продано за 5 🪙`, event);
+        updateUI();
+        saveGame();
+    }
+});
+
+// Восстановление энергии раз в секунду
+setInterval(() => {
+    if (game.energy < game.maxEnergy) {
+        game.energy = Math.min(game.energy + 1, game.maxEnergy);
+        updateUI();
+    }
+}, 1000);
+
+window.addEventListener('unload', saveGame);
+updateUI();
+</script>
+</body>
+</html>
