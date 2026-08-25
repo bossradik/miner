@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⛏️ Шахтёр 2.0</title>
+    
+    <!-- ПОДКЛЮЧЕНИЕ БИБЛИОТЕКИ ДЛЯ ЗАЩИТЫ СОХРАНЕНИЙ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -137,17 +141,17 @@
         <!-- Магазин и Рынок -->
         <div class="shop-section">
             <h3>🛒 Магазин и Рынок:</h3>
-            <div class="stat-row"><span>Текущая кирка:</span><span id="pickaxeName">🪵 Деревянная (Сила: 1)</span></div>
+            <div class="stat-row"><span>Текущая кирка:</span><span id="pickaxeName">Загрузка...</span></div>
             <button id="buyPickBtn">⛏️ Улучшить кирку<br><small id="pickaxeCost">50 🪙</small></button>
             <button id="sellStoneBtn">💰 Продать 10 Камня<br><small>+5 🪙</small></button>
         </div>
     </div>
 
-<!-- ВСТАВЬТЕ СЮДА ПЕРВУЮ ЧАСТЬ КОДА ИЗ ПРОШЛОГО СООБЩЕНИЯ -->
 <script>
     const tg = window.Telegram?.WebApp;
     if (tg) { tg.ready(); tg.expand(); }
 
+    // Список всех кирок
     const pickaxes = [
         { name: "🪵 Деревянная", power: 1, cost: 0 },
         { name: "🪨 Каменная", power: 2, cost: 50 },
@@ -156,15 +160,44 @@
         { name: "💎 Алмазная", power: 30, cost: 1000 }
     ];
 
-    let game = JSON.parse(localStorage.getItem('miner_save')) || {
-        stone: 0, iron: 0, gold: 0, diamond: 0, coins: 0,
-        energy: 100, maxEnergy: 100, level: 1, xp: 0, xpToLevel: 50,
-        pickaxeLevel: 1, power: 1
-    };
+    /* ФУНКЦИЯ ПРОВЕРКИ ЦЕЛОСТНОСТИ */
+    function calculateChecksum(obj) {
+        const { checksum, ...cleanObj } = obj;
+        return CryptoJS.SHA256(JSON.stringify(cleanObj)).toString();
+    }
 
-    if (!game.pickaxeLevel || game.pickaxeLevel < 1) { game.pickaxeLevel = 1; }
+    // Загрузка игры с проверкой на взлом
+    let game = JSON.parse(localStorage.getItem('miner_save')) || {};
+    
+    try {
+        if (game && game.checksum) {
+            const isValid = game.checksum === calculateChecksum(game);
+            if (!isValid) throw new Error("Save corrupted");
+            delete game.checksum; // Удаляем служебное поле
+        } else {
+            // Если сейва нет или он старый без чекпоинта — создаем новый профиль
+            throw new Error("No save"); 
+        }
+    } catch (e) {
+        // Профиль по умолчанию
+        game = {
+            stone: 0, iron: 0, gold: 0, diamond: 0, coins: 0,
+            energy: 100, maxEnergy: 100, level: 1, xp: 0, xpToLevel: 50,
+            pickaxeLevel: 1 
+        };
+    }
+
+    // Гарантируем наличие уровня кирки
+    if (!game.pickaxeLevel || game.pickaxeLevel < 1) game.pickaxeLevel = 1;
 
     function saveGame() {
+        // Обновляем силу перед сохранением (защита от читов через прямую смену ID кирки)
+        const currentPickIndex = Math.min(game.pickaxeLevel - 1, pickaxes.length - 1);
+        game.power = pickaxes[currentPickIndex].power;
+
+        // Считаем и записываем новую контрольную сумму
+        game.checksum = calculateChecksum(game);
+        
         localStorage.setItem('miner_save', JSON.stringify(game));
         updateUI();
     }
@@ -180,15 +213,16 @@
         document.getElementById('level').innerText = game.level;
         document.getElementById('xp').innerText = game.xp;
         document.getElementById('xpToLevel').innerText = game.xpToLevel;
-        document.getElementById('energyFill').style.width = Math.max(0, Math.min(100, (game.energy / game.maxEnergy * 100))) + "%";
-        document.getElementById('xpFill').style.width = Math.max(0, Math.min(100, (game.xp / game.xpToLevel * 100))) + "%";
+        
+        document.getElementById('energyFill').style.width = ((game.energy / game.maxEnergy) * 100).toFixed(1) + "%";
+        document.getElementById('xpFill').style.width = ((game.xp / game.xpToLevel) * 100).toFixed(1) + "%";
 
-        let currentPickIndex = Math.min(game.pickaxeLevel - 1, pickaxes.length - 1);
-        let currentPick = pickaxes[currentPickIndex] || pickaxes[0];
-        game.power = currentPick.power;
-        document.getElementById('pickaxeName').innerText = currentPick.name + " (Сила: " + currentPick.power + ")";
+        const currentPickIndex = Math.min(game.pickaxeLevel - 1, pickaxes.length - 1);
+        const currentPick = pickaxes[currentPickIndex];
+        game.power = currentPick.power; // Синхронизируем объект игры
+        document.getElementById('pickaxeName').innerText = `${currentPick.name} (Сила: ${currentPick.power})`;
 
-        let nextPick = pickaxes[game.pickaxeLevel];
+        const nextPick = pickaxes[game.pickaxeLevel];
         const buyPickBtn = document.getElementById('buyPickBtn');
         if (nextPick) {
             document.getElementById('pickaxeCost').innerText = nextPick.cost + " 🪙";
@@ -226,16 +260,21 @@
         setTimeout(() => { pop.remove(); }, 800);
     }
 
-    /* ФИНАЛЬНЫЙ ОСТАТОК КОДА — вставьте его сразу после функции showTapPop */
-    
+    /* --- БЕЗОПАСНОСТЬ ОТ СПАМА КЛИКАМИ --- */
+    let isMiningLocked = false;
+
     // Основная механика копания
     document.getElementById('mineBtn').addEventListener('click', function(e) {
-        if (game.energy <= 0) return;
+        if (game.energy <= 0 || isMiningLocked) return;
         
+        isMiningLocked = true;
+        setTimeout(() => {
+            isMiningLocked = false;
+        }, 300); // Блокировка на 300мс
+
         game.energy--;
         game.xp += game.power;
         
-        // Добыча ресурсов с шансами
         const roll = Math.random();
         if (roll < 0.005) game.diamond++;
         else if (roll < 0.05) game.gold++;
@@ -292,12 +331,7 @@
             game.energy = Math.min(game.maxEnergy, game.energy + 1);
             saveGame();
         }
-    }, 1000); // 1 единица энергии в секунду
-
-    // Обработчики для тестирования (можно удалить)
-    window.addEventListener('load', () => {
-        console.log('Игра загружена', game);
-    });
+    }, 1000);
 
     // Инициализация интерфейса при старте
     updateUI();
