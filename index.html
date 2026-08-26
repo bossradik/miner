@@ -7,9 +7,7 @@
 <title>⛏️ Шахтёр 3.0</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
 <style>
-
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -118,9 +116,7 @@ h2 {
 
 .depth-fill {
     background: #9b59b6;
-}
-
-.hint {
+    .hint {
     text-align: center;
     color: #cbd4da;
     font-style: italic;
@@ -166,9 +162,7 @@ button small {
     display: block;
     margin-top: 5px;
     font-size: 14px;
-}
-
-.mine-button {
+    }.mine-button {
     min-height: 78px;
 
     background:
@@ -319,218 +313,101 @@ button small {
 
     font-size: 17px;
 }
-
+}
 .quest {
     padding: 12px;
     margin: 8px 0;
-
     border-radius: 13px;
-
-    background:
-        rgba(0,0,0,.13);
-
-    border-left:
-        4px solid #f1c40f;
+    background: rgba(0,0,0,.13);
+    border-left: 4px solid #f1c40f;
 }
 
-.quest-title {
-    font-weight: bold;
-    font-size: 17px;
-}
-
-.quest-progress {
-    margin-top: 5px;
-    color: #c8d2d8;
-    font-size: 14px;
-}
-
-.quest-reward {
-    margin-top: 5px;
-    color: #f1c40f;
-    font-size: 14px;
-}
-
-.quest.completed {
-    border-left-color: #2ecc71;
-}
+.quest-title { font-weight: bold; font-size: 17px; }
+.quest-progress { margin-top: 5px; color: #c8d2d8; font-size: 14px; }
+.quest-reward { margin-top: 5px; color: #f1c40f; font-size: 14px; }
+.quest.completed { border-left-color: #2ecc71; }
 
 .chest {
     padding: 14px;
     margin-top: 12px;
-
     border-radius: 15px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #755b25,
-            #403216
-        );
-
+    background: linear-gradient(145deg, #755b25, #403216);
     text-align: center;
-
-    animation:
-        chestGlow 1.5s infinite alternate;
+    animation: chestGlow 1.5s infinite alternate;
 }
 
 @keyframes chestGlow {
-    from {
-        box-shadow:
-            0 0 5px rgba(241,196,15,.15);
-    }
-
-    to {
-        box-shadow:
-            0 0 20px rgba(241,196,15,.35);
-    }
+    from { box-shadow: 0 0 5px rgba(241,196,15,.15); }
+    to { box-shadow: 0 0 20px rgba(241,196,15,.35); }
 }
 
 .pickaxe-box {
     text-align: center;
-
     padding: 12px;
-
     border-radius: 15px;
-
-    background:
-        rgba(0,0,0,.13);
-
+    background: rgba(0,0,0,.13);
     margin-bottom: 10px;
 }
 
-.pickaxe-icon {
-    font-size: 45px;
-}
-
-.pickaxe-name {
-    font-size: 21px;
-    font-weight: bold;
-}
+.pickaxe-icon { font-size: 45px; }
+.pickaxe-name { font-size: 21px; font-weight: bold; }
 
 .message-area {
     position: fixed;
-
     top: 65px;
     left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    width:
-        min(92%, 390px);
-
+    transform: translateX(-50%);
+    width: min(92%, 390px);
     z-index: 999;
-
     pointer-events: none;
 }
 
 .message {
     padding: 12px 15px;
-
     margin-bottom: 8px;
-
     border-radius: 14px;
-
-    background:
-        rgba(15,20,25,.95);
-
+    background: rgba(15,20,25,.95);
     color: white;
-
     text-align: center;
-
     font-weight: bold;
     font-size: 17px;
-
-    box-shadow:
-        0 6px 20px rgba(0,0,0,.4);
-
-    animation:
-        messageAnimation 1.9s forwards;
+    box-shadow: 0 6px 20px rgba(0,0,0,.4);
+    animation: messageAnimation 1.9s forwards;
 }
 
 @keyframes messageAnimation {
-
-    0% {
-        opacity: 0;
-        transform:
-            translateY(-20px)
-            scale(.9);
-    }
-
-    15% {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        transform:
-            translateY(-15px);
-    }
-
+    0% { opacity: 0; transform: translateY(-20px) scale(.9); }
+    15% { opacity: 1; transform: translateY(0) scale(1); }
+    75% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-15px); }
 }
 
-.mine-animation {
-    animation:
-        mineShake .18s;
-}
+.mine-animation { animation: mineShake .18s; }
 
 @keyframes mineShake {
-
-    0% {
-        transform: rotate(0);
-    }
-
-    25% {
-        transform:
-            rotate(-1deg)
-            scale(.99);
-    }
-
-    50% {
-        transform:
-            rotate(1deg)
-            scale(.98);
-    }
-
-    75% {
-        transform:
-            rotate(-1deg)
-            scale(.99);
-    }
-
-    100% {
-        transform: rotate(0);
-    }
-
+    0% { transform: rotate(0); }
+    25% { transform: rotate(-1deg) scale(.99); }
+    50% { transform: rotate(1deg) scale(.98); }
+    75% { transform: rotate(-1deg) scale(.99); }
+    100% { transform: rotate(0); }
 }
 
 .footer {
     text-align: center;
     margin-top: 25px;
-
     color: #8999a4;
-
     font-size: 12px;
 }
-
-</style>
+</style>    
+ </style>
 </head>
 
-<body>
-
-<div class="message-area" id="messageArea"></div>
+<body>   
+ <div class="message-area" id="messageArea"></div>
 
 <div class="game-container">
 
 <h1>⛏️ Шахтёр 3.0</h1>
-
 
 <!-- ================================
      УРОВЕНЬ
@@ -578,10 +455,8 @@ button small {
         /
         <span id="maxEnergy">100</span>
     </span>
-</div>
-
-
-<!-- ================================
+</div>   
+    <!-- ================================
      ТЕКУЩАЯ ШАХТА
 ================================ -->
 
@@ -642,8 +517,7 @@ button small {
     ⛏️ КОПАТЬ!
 
 </button>
-
-
+```html
 <!-- ================================
      РЕСУРСЫ
 ================================ -->
@@ -886,467 +760,424 @@ button small {
 </div>
 
 </div>
-
-
+    
+```
 <script>
 
-
 /* =========================================================
-   TELEGRAM
+   TELEGRAM И ШАХТЫ
 ========================================================= */
 
-const tg =
-    window.Telegram?.WebApp;
+const tg = window.Telegram?.WebApp;
 
 if (tg) {
-
     tg.ready();
-
     tg.expand();
-
     try {
-
         tg.setHeaderColor("#1f2d3a");
-
         tg.setBackgroundColor("#1f2d3a");
-
     } catch (e) {}
-
 }
 
-
-/* =========================================================
-   ШАХТЫ
-========================================================= */
-
 const mines = [
-
-    {
-        id: "stone",
-        name: "Каменная шахта",
-        icon: "🪨",
-        description:
-            "Безопасная шахта для начинающих.",
-        requiredLevel: 1,
-        maxDepth: 100,
-        rewards:
-            "🪨 Камень • ⛓️ Железо",
-        color: "#667985"
-    },
-
-    {
-        id: "gold",
-        name: "Золотая шахта",
-        icon: "🥇",
-        description:
-            "Здесь уже можно найти настоящие богатства.",
-        requiredLevel: 5,
-        maxDepth: 250,
-        rewards:
-            "⛓️ Железо • 🥇 Золото",
-        color: "#d4a72c"
-    },
-
-    {
-        id: "diamond",
-        name: "Алмазная шахта",
-        icon: "💎",
-        description:
-            "Глубокие пещеры с шансом найти алмазы.",
-        requiredLevel: 12,
-        maxDepth: 500,
-        rewards:
-            "🥇 Золото • 💎 Алмаз",
-        color: "#55c9ed"
-    },
-
-    {
-        id: "ruby",
-        name: "Кристальная шахта",
-        icon: "🔴",
-        description:
-            "Редкие кристаллы находятся здесь.",
-        requiredLevel: 25,
-        maxDepth: 1000,
-        rewards:
-            "💎 Алмаз • 🔴 Рубин",
-        color: "#d94c65"
-    },
-
-    {
-        id: "hell",
-        name: "Лавовая шахта",
-        icon: "🌋",
-        description:
-            "Опасное место. Здесь очень жарко.",
-        requiredLevel: 40,
-        maxDepth: 2000,
-        rewards:
-            "🔴 Рубин • 🟣 Аметист",
-        color: "#e56b32"
-    },
-
-    {
-        id: "space",
-        name: "Космическая шахта",
-        icon: "🌌",
-        description:
-            "Последний уровень. Ресурсы стоят целое состояние.",
-        requiredLevel: 75,
-        maxDepth: 5000,
-        rewards:
-            "💎 Алмаз • 🔴 Рубин • 🟣 Аметист",
-        color: "#8b68d4"
-    }
-
+    { id: "stone", name: "Каменная шахта", icon: "🪨", description: "Безопасная шахта для начинающих.", requiredLevel: 1, maxDepth: 100, rewards: "🪨 Камень • ⛓️ Железо", color: "#667985" },
+    { id: "gold", name: "Золотая шахта", icon: "🥇", description: "Здесь уже можно найти настоящие богатства.", requiredLevel: 5, maxDepth: 250, rewards: "⛓️ Железо • 🥇 Золото", color: "#d4a72c" },
+    { id: "diamond", name: "Алмазная шахта", icon: "💎", description: "Глубокие пещеры с шансом найти алмазы.", requiredLevel: 12, maxDepth: 500, rewards: "🥇 Золото • 💎 Алмаз", color: "#55c9ed" },
+    { id: "ruby", name: "Кристальная шахта", icon: "🔴", description: "Редкие кристаллы находятся здесь.", requiredLevel: 25, maxDepth: 1000, rewards: "💎 Алмаз • 🔴 Рубин", color: "#d94c65" },
+    { id: "hell", name: "Лавовая шахта", icon: "🌋", description: "Опасное место. Здесь очень жарко.", requiredLevel: 40, maxDepth: 2000, rewards: "🔴 Рубин • 🟣 Аметист", color: "#e56b32" },
+    { id: "space", name: "Космическая шахта", icon: "🌌", description: "Последний уровень. Ресурсы стоят целое состояние.", requiredLevel: 75, maxDepth: 5000, rewards: "💎 Алмаз • 🔴 Рубин • 🟣 Аметист", color: "#8b68d4" }
 ];
-
-
-/* =========================================================
-   КИРКИ
-========================================================= */
 
 const pickaxes = [
-
-    {
-        name: "Деревянная",
-        icon: "🪵",
-        power: 1,
-        cost: 0
-    },
-
-    {
-        name: "Каменная",
-        icon: "🪨",
-        power: 2,
-        cost: 75
-    },
-
-    {
-        name: "Железная",
-        icon: "⛓️",
-        power: 4,
-        cost: 300
-    },
-
-    {
-        name: "Золотая",
-        icon: "🥇",
-        power: 8,
-        cost: 900
-    },
-
-    {
-        name: "Алмазная",
-        icon: "💎",
-        power: 16,
-        cost: 2500
-    },
-
-    {
-        name: "Огненная",
-        icon: "🔥",
-        power: 32,
-        cost: 7500
-    },
-
-    {
-        name: "Магическая",
-        icon: "🧙",
-        power: 64,
-        cost: 25000
-    },
-
-    {
-        name: "Космическая",
-        icon: "🚀",
-        power: 128,
-        cost: 100000
-    }
-
-];
-
-
-/* =========================================================
-   ЗАДАНИЯ
+    { name: "Деревянная", icon: "🪵", power: 1, cost: 0 },
+    { name: "Каменная", icon: "🪨", power: 2, cost: 75 },
+    { name: "Железная", icon: "⛓️", power: 4, cost: 300 },
+    { name: "Золотая", icon: "🥇", power: 8, cost: 900 },
+    { name: "Алмазная", icon: "💎", power: 16, cost: 2500 },
+    { name: "Огненная", icon: "🔥", power: 32, cost: 7500 },
+    { name: "Магическая", icon: "🧙", power: 64, cost: 25000 },
+    { name: "Космическая", icon: "🚀", power: 128, cost: 100000 }
+    /* =========================================================
+   ЗАДАНИЯ И СОСТОЯНИЕ ИГРЫ
 ========================================================= */
 
 const questTemplates = [
-
-    {
-        id: "mine50",
-        title: "⛏️ Начало пути",
-        description:
-            "Сделать 50 копаний",
-        target: 50,
-        rewardCoins: 100,
-        rewardXP: 50
-    },
-
-    {
-        id: "stone100",
-        title: "🪨 Каменщик",
-        description:
-            "Добыть 100 камня",
-        target: 100,
-        rewardCoins: 150,
-        rewardXP: 70
-    },
-
-    {
-        id: "iron20",
-        title: "⛓️ Железная жила",
-        description:
-            "Добыть 20 железа",
-        target: 20,
-        rewardCoins: 250,
-        rewardXP: 100
-    },
-
-    {
-        id: "gold10",
-        title: "🥇 Золотая жила",
-        description:
-            "Добыть 10 золота",
-        target: 10,
-        rewardCoins: 500,
-        rewardXP: 150
-    }
-
+    { id: "mine50", title: "⛏️ Начало пути", description: "Сделать 50 копаний", target: 50, rewardCoins: 100, rewardXP: 50, type: "mine" },
+    { id: "stone100", title: "🪨 Каменщик", description: "Добыть 100 камня", target: 100, rewardCoins: 150, rewardXP: 70, type: "stone" },
+    { id: "iron20", title: "⛓️ Железная жила", description: "Добыть 20 железа", target: 20, rewardCoins: 250, rewardXP: 100, type: "iron" },
+    { id: "gold10", title: "🥇 Золотая жила", description: "Добыть 10 золота", target: 10, rewardCoins: 500, rewardXP: 150, type: "gold" }
 ];
 
-
-/* =========================================================
-   СОСТОЯНИЕ ИГРЫ
-========================================================= */
-
 const defaultGame = {
-
-    stone: 5,
-
-    iron: 6,
-
-    gold: 2,
-
-    diamond: 0,
-
-    ruby: 0,
-
-    amethyst: 0,
-
-    coins: 28,
-
-    energy: 100,
-
-    maxEnergy: 100,
-
-    level: 1,
-
-    xp: 23,
-
-    xpToLevel: 50,
-
-    pickaxeLevel: 1,
-
-    power: 1,
-
-    bagSize: 30,
-
-    currentMine: "stone",
-
-    depth: 1,
-
-    totalMines: 0,
-
-    quests: {},
-
-    chestCount: 0
-
+    stone: 0, iron: 0, gold: 0, diamond: 0, ruby: 0, amethyst: 0,
+    coins: 0,
+    energy: 100, maxEnergy: 100,
+    level: 1, xp: 0, xpToLevel: 50,
+    pickaxeLevel: 1, power: 1,
+    bagSize: 30, bagLevel: 1, bagCost: 150,
+    currentMine: "stone", depth: 0, totalMines: 0,
+    quests: [], chestCount: 0
 };
-
 
 let game;
 
-
 try {
-
-    const saved =
-        localStorage.getItem(
-            "miner_save"
-        );
-
+    const saved = localStorage.getItem("miner_save");
     if (saved) {
-
-        game = {
-            ...defaultGame,
-            ...JSON.parse(saved)
-        };
-
+        game = { ...defaultGame, ...JSON.parse(saved) };
     } else {
-
-        game = {
-            ...defaultGame
-        };
-
+        game = { ...defaultGame };
     }
-
 } catch (error) {
-
-    game = {
-        ...defaultGame
-    };
-
+    game = { ...defaultGame };
 }
 
-
-/* =========================================================
-   СОХРАНЕНИЕ
-========================================================= */
+if (!game.quests || game.quests.length === 0) {
+    game.quests = questTemplates.map(q => ({
+        id: q.id, progress: 0, completed: false
+    }));
+} else {
+    questTemplates.forEach(template => {
+        if (!game.quests.some(q => q.id === template.id)) {
+            game.quests.push({
+                id: template.id, progress: 0, completed: false
+            });
+        }
+    });
+}
 
 function saveGame() {
-
-    localStorage.setItem(
-        "miner_save",
-        JSON.stringify(game)
-    );
-
+    localStorage.setItem("miner_save", JSON.stringify(game));
 }
-
-
-/* =========================================================
-   СООБЩЕНИЕ
-========================================================= */
 
 function showMessage(text) {
-
-    const area =
-        document.getElementById(
-            "messageArea"
-        );
-
-    const message =
-        document.createElement(
-            "div"
-        );
-
-    message.className =
-        "message";
-
-    message.textContent =
-        text;
-
-    area.appendChild(
-        message
-    );
-
-    setTimeout(
-        () => message.remove(),
-        1900
-    );
-
-}
-
-
-/* =========================================================
-   ПОЛУЧИТЬ ТЕКУЩУЮ ШАХТУ
+    const area = document.getElementById("messageArea");
+    const message = document.createElement("div");
+    message.className = "message";
+    message.textContent = text;
+    area.appendChild(message);
+    setTimeout(() => message.remove(), 1900);
+    /* =========================================================
+   ПОП-АПЫ, КВЕСТЫ И ОПЫТ
 ========================================================= */
+
+function createTapPop(text) {
+    const btn = document.getElementById("mineBtn");
+    const pop = document.createElement("div");
+    pop.className = "tap-pop";
+    pop.textContent = text;
+
+    const rect = btn.getBoundingClientRect();
+    pop.style.left = (rect.left + rect.width / 2 - 20) + "px";
+    pop.style.top = (rect.top + window.scrollY + 5) + "px";
+
+    document.body.appendChild(pop);
+    setTimeout(() => pop.remove(), 800);
+}
 
 function getCurrentMine() {
-
-    return mines.find(
-        mine =>
-            mine.id ===
-            game.currentMine
-    ) || mines[0];
-
+    return mines.find(mine => mine.id === game.currentMine) || mines[0];
 }
-
-
-/* =========================================================
-   ПОДСЧЁТ РЮКЗАКА
-========================================================= */
 
 function getUsedSlots() {
-
     return (
-
-        game.stone +
-
-        game.iron +
-
-        game.gold +
-
-        game.diamond +
-
-        game.ruby +
-
-        game.amethyst
-
+        game.stone + game.iron + game.gold + game.diamond + game.ruby + game.amethyst
     );
-
 }
 
-
-/* =========================================================
-   XP
-========================================================= */
-
 function addXP(amount) {
-
     game.xp += amount;
-
     let levelUps = 0;
 
-    while (
-        game.xp >=
-        game.xpToLevel
-    ) {
-
-        game.xp -=
-            game.xpToLevel;
-
+    while (game.xp >= game.xpToLevel) {
+        game.xp -= game.xpToLevel;
         game.level++;
-
         levelUps++;
-
-        game.xpToLevel =
-            Math.floor(
-                game.xpToLevel *
-                1.35
-            );
-
+        game.xpToLevel = Math.floor(game.xpToLevel * 1.35);
         game.maxEnergy += 10;
-
-        game.energy =
-            game.maxEnergy;
-
+        game.energy = game.maxEnergy;
     }
 
     if (levelUps > 0) {
-
-        showMessage(
-            `🎉 Новый уровень: ${game.level}!`
-        );
-
+        showMessage(`🎉 Новый уровень: ${game.level}! +10 ⚡`);
     }
-
 }
 
+function updateQuestsProgress(type, value = 1) {
+    game.quests.forEach(quest => {
+        const template = questTemplates.find(t => t.id === quest.id);
 
+        if (template && !quest.completed && template.type === type) {
+            quest.progress += value;
+            if (quest.progress >= template.target) {
+                quest.completed = true;
+                game.coins += template.rewardCoins;
+                addXP(template.rewardXP);
+                showMessage(`✅ Задание "${template.title}" выполнено! Получено: ${template.rewardCoins} 🪙, ${template.rewardXP} ✨`);
+            }
+        }
+    });
+    renderQuests();
+    saveGame();
+}
+
+function renderQuests() {
+    const questsArea = document.getElementById("quests");
+    questsArea.innerHTML = "";
+
+    game.quests.forEach(quest => {
+        const template = questTemplates.find(t => t.id === quest.id);
+        if (!template) return;
+
+        const questDiv = document.createElement("div");
+        questDiv.className = `quest ${quest.completed ? 'completed' : ''}`;
+        questDiv.innerHTML = `
+            <div class="quest-title">${template.title}</div>
+            <div class="quest-progress">Прогресс: ${Math.min(quest.progress, template.target)}/${template.target}</div>
+            <div class="quest-reward">Награда: ${template.rewardCoins} 🪙, ${template.rewardXP} ✨</div>
+        `;
+        questsArea.appendChild(questDiv);
+    });
+}
 /* =========================================================
-   КАРТА
+   КАРТА ШАХТ
 ========================================================= */
 
 function renderMineMap() {
-
-    const map =
-        document.getElementById(
-            "mineMap"
-        );
-
+    const map = document.getElementById("mineMap");
     map.innerHTML = "";
 
-    mines.forEach(
-        mine => {
+    mines.forEach(mine => {
+        const mineCard = document.createElement("div");
+        mineCard.className = `mine-card ${game.currentMine === mine.id ? 'current' : ''} ${game.level < mine.requiredLevel ? 'locked' : ''}`;
+        mineCard.onclick = () => selectMine(mine.id);
 
-            c
+        mineCard.innerHTML = `
+            ${game.level < mine.requiredLevel ? '<span class="lock-icon">🔒</span>' : ''}
+            <div class="mine-icon">${mine.icon}</div>
+            <div class="mine-name">${mine.name}</div>
+            <div class="mine-level">Ур. ${mine.requiredLevel}+</div>
+            <div class="mine-reward">${mine.rewards}</div>
+        `;
+        map.appendChild(mineCard);
+    });
+}
+
+/* =========================================================
+   ВЫБОР ШАХТЫ
+========================================================= */
+
+function selectMine(mineId) {
+    const selectedMine = mines.find(m => m.id === mineId);
+    if (!selectedMine) return;
+
+    if (game.level < selectedMine.requiredLevel) {
+        showMessage(`❌ Нужно ${selectedMine.requiredLevel} ур. для этой шахты!`);
+        return;
+    }
+
+    game.currentMine = mineId;
+    game.depth = 0;
+    showMessage(`Вы выбрали ${selectedMine.name}!`);
+    saveGame();
+    updateUI();
+    renderMineMap();
+    /* =========================================================
+   ОБНОВЛЕНИЕ ИНТЕРФЕЙСА
+========================================================= */
+
+function updateUI() {
+    document.getElementById("stone").textContent = game.stone;
+    document.getElementById("iron").textContent = game.iron;
+    document.getElementById("gold").textContent = game.gold;
+    document.getElementById("diamond").textContent = game.diamond;
+    document.getElementById("ruby").textContent = game.ruby;
+    document.getElementById("amethyst").textContent = game.amethyst;
+    document.getElementById("coins").textContent = game.coins;
+    document.getElementById("energy").textContent = game.energy;
+    document.getElementById("maxEnergy").textContent = game.maxEnergy;
+    document.getElementById("level").textContent = game.level;
+    document.getElementById("xp").textContent = game.xp;
+    document.getElementById("xpToLevel").textContent = game.xpToLevel;
+    document.getElementById("depth").textContent = game.depth;
+
+    const currentMineData = getCurrentMine();
+    document.getElementById("currentMineIcon").textContent = currentMineData.icon;
+    document.getElementById("currentMineName").textContent = currentMineData.name;
+    document.getElementById("currentMineDescription").textContent = currentMineData.description;
+
+    const pickIndex = Math.max(0, Math.min(game.pickaxeLevel - 1, pickaxes.length - 1));
+    const currentPick = pickaxes[pickIndex];
+    game.power = currentPick.power;
+    document.getElementById("pickaxeIcon").textContent = currentPick.icon;
+    document.getElementById("pickaxeName").textContent = currentPick.name;
+    document.getElementById("pickaxePower").textContent = currentPick.power;
+
+    document.getElementById("xpFill").style.width = Math.min(100, (game.xp / game.xpToLevel) * 100) + "%";
+    document.getElementById("energyFill").style.width = Math.max(0, Math.min(100, (game.energy / game.maxEnergy) * 100)) + "%";
+    document.getElementById("depthFill").style.width = Math.min(100, (game.depth / currentMineData.maxDepth) * 100) + "%";
+
+    const nextPick = pickaxes[game.pickaxeLevel];
+    const buyPickButton = document.getElementById("buyPickBtn");
+    if (nextPick) {
+        document.getElementById("pickaxeCost").textContent = nextPick.cost + " 🪙";
+        buyPickButton.disabled = game.coins < nextPick.cost;
+    } else {
+        document.getElementById("pickaxeCost").textContent = "МАКСИМАЛЬНАЯ";
+        buyPickButton.disabled = true;
+    }
+
+    document.getElementById("usedSlots").textContent = getUsedSlots();
+    document.getElementById("bagSize").textContent = game.bagSize;
+    document.getElementById("bagCost").textContent = game.bagCost + " 🪙";
+    document.getElementById("bagBtn").disabled = game.coins < game.bagCost;
+
+    const mineButton = document.getElementById("mineBtn");
+    const isBagFull = getUsedSlots() >= game.bagSize;
+
+    if (game.energy <= 0 || isBagFull) {
+        mineButton.disabled = true;
+        mineButton.textContent = isBagFull ? "🎒 РЮКЗАК ПОЛОН" : "⏳ НЕТ ЭНЕРГИИ";
+        document.getElementById("hintText").textContent = isBagFull ? "Продай ресурсы, чтобы продолжить!" : "Восстанови энергию!";
+    } else {
+        mineButton.disabled = false;
+        mineButton.textContent = "⛏️ КОПАТЬ!";
+        document.getElementById("hintText").textContent = game.energy < game.maxEnergy ? "Копай руду и находи сокровища!" : 'Нажми "КОПАТЬ", чтобы начать!';
+    }
+
+    saveGame();
+    renderQuests();
+    renderMineMap();
+    /* =====================================================
+   ДОБЫЧА
+===================================================== */
+
+function mine() {
+    if (game.energy <= 0) { showMessage("⛔ Недостаточно энергии!"); return; }
+    if (getUsedSlots() >= game.bagSize) { showMessage("🎒 Рюкзак переполнен! Продай ресурсы."); return; }
+
+    const energyCost = Math.max(1, Math.ceil(game.power / 8));
+    game.energy = Math.max(0, game.energy - energyCost);
+
+    const mineButton = document.getElementById("mineBtn");
+    mineButton.classList.add("mine-animation");
+    if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
+
+    game.depth = Math.min(getCurrentMine().maxDepth, game.depth + 1);
+    const amount = Math.max(1, Math.floor(game.power * (0.7 + Math.random() * 0.6)));
+    const currentMineData = getCurrentMine();
+
+    const baseRareBonus = game.power * 0.0015;
+    const rareBonusPerMine = { stone: 0, gold: 0.02, diamond: 0.05, ruby: 0.08, hell: 0.10, space: 0.15 }[currentMineData.id] || 0;
+    const totalRareBonus = Math.min(0.15, baseRareBonus + rareBonusPerMine);
+
+    const random = Math.random();
+    let rewardText = "";
+
+    if (random < 0.01 + totalRareBonus) {
+        const diamonds = Math.max(1, Math.floor(game.power / 16));
+        game.diamond += diamonds;
+        game.coins += diamonds * 25;
+        addXP(10);
+        rewardText = `💎 +${diamonds} Алмаз! +${diamonds * 25} 🪙`;
+        updateQuestsProgress('diamond', diamonds);
+    } else if (random < 0.06 + totalRareBonus) {
+        const gold = Math.max(1, Math.floor(game.power / 8));
+        game.gold += gold;
+        game.coins += gold * 8;
+        addXP(6);
+        rewardText = `🥇 +${gold} Золото! +${gold * 8} 🪙`;
+        updateQuestsProgress('gold', gold);
+    } else if (random < 0.20 + totalRareBonus) {
+        const iron = Math.max(1, Math.floor(game.power / 4));
+        game.iron += iron;
+        game.coins += iron * 3;
+        addXP(4);
+        rewardText = `⛓️ +${iron} Железо! +${iron * 3} 🪙`;
+        updateQuestsProgress('iron', iron);
+    } else {
+        game.stone += amount;
+        game.coins += Math.max(1, Math.floor(amount / 2));
+        addXP(2);
+        rewardText = `🪨 +${amount} Камень`;
+        updateQuestsProgress('stone', amount);
+    }
+
+    createTapPop(rewardText);
+    showMessage(rewardText);
+    updateQuestsProgress('mine', 1);
+
+    mineButton.addEventListener('animationend', () => { mineButton.classList.remove("mine-animation"); }, { once: true });
+    updateUI();
+    function buyPickaxe() {
+    const nextPick = pickaxes[game.pickaxeLevel];
+    if (!nextPick) { showMessage("🏆 У тебя максимальная кирка!"); return; }
+    if (game.coins < nextPick.cost) { showMessage("❌ Недостаточно монет!"); return; }
+    game.coins -= nextPick.cost;
+    game.pickaxeLevel++;
+    showMessage(`⛏️ Получена ${nextPick.name}! Сила: ${nextPick.power}`);
+    updateUI();
+}
+
+function buyBag() {
+    if (game.coins < game.bagCost) { showMessage("❌ Недостаточно монет!"); return; }
+    game.coins -= game.bagCost;
+    game.bagSize += 10;
+    game.bagLevel++;
+    game.bagCost = Math.floor(game.bagCost * 1.6);
+    showMessage(`🎒 Рюкзак улучшен! +10 мест. Теперь ${game.bagSize}.`);
+    updateUI();
+}
+
+function sellStone() {
+    if (game.stone < 10) { showMessage("🪨 Нужно минимум 10 камня!"); return; }
+    game.stone -= 10; game.coins += 5; showMessage("💰 Продано 10 камня! +5 🪙"); updateUI();
+}
+
+function sellIron() {
+    if (game.iron < 10) { showMessage("⛓️ Нужно минимум 10 железа!"); return; }
+    game.iron -= 10; game.coins += 30; showMessage("💰 Продано 10 железа! +30 🪙"); updateUI();
+}
+function sellGold() {
+    if (game.gold < 5) { showMessage("🥇 Нужно минимум 5 золота!"); return; }
+    game.gold -= 5; game.coins += 50; showMessage("💰 Продано 5 золота! +50 🪙"); updateUI();
+}
+
+function sellDiamond() {
+    if (game.diamond < 1) { showMessage("💎 Нужно минимум 1 алмаз!"); return; }
+    game.diamond -= 1; game.coins += 100; showMessage("💰 Продан 1 алмаз! +100 🪙"); updateUI();
+}
+
+function rest() {
+    if (game.coins < 100) { showMessage("❌ Нужно 100 монет!"); return; }
+    if (game.energy >= game.maxEnergy) { showMessage("⚡ Энергия уже полностью восстановлена!"); return; }
+    game.coins -= 100;
+    game.energy = Math.min(game.maxEnergy, game.energy + 100);
+    showMessage("🛌 Энергия восстановлена!");
+    updateUI();
+}
+
+document.getElementById("mineBtn").addEventListener("click", mine);
+document.getElementById("buyPickBtn").addEventListener("click", buyPickaxe);
+document.getElementById("sellStoneBtn").addEventListener("click", sellStone);
+document.getElementById("sellIronBtn").addEventListener("click", sellIron);
+document.getElementById("sellGoldBtn").addEventListener("click", sellGold);
+document.getElementById("sellDiamondBtn").addEventListener("click", sellDiamond);
+document.getElementById("restBtn").addEventListener("click", rest);
+document.getElementById("bagBtn").addEventListener("click", buyBag);
+
+setInterval(() => {
+    if (game.energy < game.maxEnergy) {
+        game.energy = Math.min(game.maxEnergy, game.energy + 1);
+        updateUI();
+    }
+}, 5000);
+
+updateUI();
+</script>
+</body>
+</html>
+
+
+
+   
