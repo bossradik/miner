@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>⛏️ Шахтёр 3.0</title>
+<title>в›ЏпёЏ РЁР°С…С‚С‘СЂ 3.0</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
@@ -16,8 +15,7 @@
 body {
     margin: 0;
     padding: 8px;
-    background:
-        radial-gradient(circle at top, #34495e, #18232d 75%);
+    background: radial-gradient(circle at top, #34495e, #18232d 75%);
     color: #ecf0f1;
     font-family: Arial, "Segoe UI", sans-serif;
 }
@@ -27,20 +25,9 @@ body {
     max-width: 450px;
     margin: auto;
     padding: 20px 16px 35px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(58,82,103,.98),
-            rgba(38,55,70,.98)
-        );
-
+    background: linear-gradient(145deg, rgba(58,82,103,.98), rgba(38,55,70,.98));
     border-radius: 24px;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.45),
-        inset 0 1px rgba(255,255,255,.08);
-
+    box-shadow: 0 15px 40px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.08);
     overflow: hidden;
 }
 
@@ -67,85 +54,52 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     min-height: 42px;
     padding: 5px 6px;
-
     font-size: 20px;
-
-    border-bottom:
-        1px solid rgba(0,0,0,.12);
-
-    text-shadow:
-        0 2px 3px rgba(0,0,0,.25);
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    text-shadow: 0 2px 3px rgba(0,0,0,.25);
 }
 
 .progress {
     width: 100%;
     height: 22px;
-
     margin: 5px 0 7px;
-
     background: #7d8b92;
-
     border-radius: 15px;
-
     overflow: hidden;
-
-    box-shadow:
-        inset 0 2px 5px rgba(0,0,0,.35);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,.35);
 }
 
 .progress-fill {
     height: 100%;
     width: 0%;
-
     border-radius: 15px;
-
-    transition:
-        width .3s ease;
+    transition: width .3s ease;
 }
 
-.xp-fill {
-    background: #27b968;
-}
+.xp-fill { background: #27b968; }
+.energy-fill { background: #2fc06b; }
+.depth-fill { background: #9b59b6; }
 
-.energy-fill {
-    background: #2fc06b;
-}
-
-.depth-fill {
-    background: #9b59b6;
-    .hint {
+.hint {
     text-align: center;
     color: #cbd4da;
     font-style: italic;
     font-size: 18px;
     margin: 22px 0;
 }
-
 button {
     width: 100%;
-
     border: none;
     border-radius: 17px;
-
     padding: 15px 10px;
     margin: 6px 0;
-
     font-size: 20px;
     font-weight: 800;
-
     cursor: pointer;
-
-    transition:
-        transform .12s,
-        filter .12s,
-        opacity .2s;
-
-    box-shadow:
-        0 5px 12px rgba(0,0,0,.25),
-        inset 0 1px rgba(255,255,255,.35);
+    transition: transform .12s, filter .12s, opacity .2s;
+    box-shadow: 0 5px 12px rgba(0,0,0,.25), inset 0 1px rgba(255,255,255,.35);
 }
 
 button:active {
@@ -162,53 +116,32 @@ button small {
     display: block;
     margin-top: 5px;
     font-size: 14px;
-    }.mine-button {
-    min-height: 78px;
+}
 
-    background:
-        linear-gradient(
-            to bottom,
-            #ffb63e,
-            #c77c15
-        );
+.mine-button {
+    min-height: 78px;
+    background: linear-gradient(to bottom, #ffb63e, #c77c15);
+    color: #332000;
 }
 
 .blue-button {
-    background:
-        linear-gradient(
-            to bottom,
-            #67d4ef,
-            #298ab5
-        );
+    background: linear-gradient(to bottom, #67d4ef, #298ab5);
+    color: white;
 }
 
 .gray-button {
-    background:
-        linear-gradient(
-            to bottom,
-            #d0dce2,
-            #788991
-        );
+    background: linear-gradient(to bottom, #d0dce2, #788991);
+    color: #1a252c;
 }
 
 .dark-button {
-    background:
-        linear-gradient(
-            to bottom,
-            #617383,
-            #293a47
-        );
-
+    background: linear-gradient(to bottom, #617383, #293a47);
     color: white;
 }
 
 .green-button {
-    background:
-        linear-gradient(
-            to bottom,
-            #48d58a,
-            #249c5e
-        );
+    background: linear-gradient(to bottom, #48d58a, #249c5e);
+    color: white;
 }
 
 .map-grid {
@@ -219,33 +152,15 @@ button small {
 
 .mine-card {
     position: relative;
-
     min-height: 145px;
-
     padding: 14px 8px;
-
     border-radius: 18px;
-
     text-align: center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #3e5668,
-            #273947
-        );
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 5px 12px rgba(0,0,0,.2);
-
+    background: linear-gradient(145deg, #3e5668, #273947);
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 5px 12px rgba(0,0,0,.2);
     cursor: pointer;
-
-    transition:
-        transform .15s,
-        filter .15s;
+    transition: transform .15s, filter .15s;
 }
 
 .mine-card:active {
@@ -260,32 +175,13 @@ button small {
 
 .mine-card.current {
     border: 2px solid #f1c40f;
-
-    box-shadow:
-        0 0 15px rgba(241,196,15,.25);
+    box-shadow: 0 0 15px rgba(241,196,15,.25);
 }
 
-.mine-icon {
-    font-size: 42px;
-    margin-bottom: 5px;
-}
-
-.mine-name {
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.mine-level {
-    margin-top: 5px;
-    color: #bdc9d0;
-    font-size: 13px;
-}
-
-.mine-reward {
-    margin-top: 5px;
-    font-size: 12px;
-    color: #f1c40f;
-}
+.mine-icon { font-size: 42px; margin-bottom: 5px; }
+.mine-name { font-size: 17px; font-weight: bold; }
+.mine-level { margin-top: 5px; color: #bdc9d0; font-size: 13px; }
+.mine-reward { margin-top: 5px; font-size: 12px; color: #f1c40f; }
 
 .lock-icon {
     position: absolute;
@@ -299,21 +195,15 @@ button small {
     grid-template-columns: 1fr 1fr;
     gap: 6px;
 }
-
 .inventory-item {
     display: flex;
     justify-content: space-between;
-
     padding: 9px;
-
-    background:
-        rgba(0,0,0,.12);
-
+    background: rgba(0,0,0,.12);
     border-radius: 9px;
-
     font-size: 17px;
 }
-}
+
 .quest {
     padding: 12px;
     margin: 8px 0;
@@ -326,20 +216,6 @@ button small {
 .quest-progress { margin-top: 5px; color: #c8d2d8; font-size: 14px; }
 .quest-reward { margin-top: 5px; color: #f1c40f; font-size: 14px; }
 .quest.completed { border-left-color: #2ecc71; }
-
-.chest {
-    padding: 14px;
-    margin-top: 12px;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #755b25, #403216);
-    text-align: center;
-    animation: chestGlow 1.5s infinite alternate;
-}
-
-@keyframes chestGlow {
-    from { box-shadow: 0 0 5px rgba(241,196,15,.15); }
-    to { box-shadow: 0 0 20px rgba(241,196,15,.35); }
-}
 
 .pickaxe-box {
     text-align: center;
@@ -398,374 +274,163 @@ button small {
     color: #8999a4;
     font-size: 12px;
 }
-</style>    
- </style>
+</style>
 </head>
 
 <body>   
- <div class="message-area" id="messageArea"></div>
+<div class="message-area" id="messageArea"></div>
 
 <div class="game-container">
 
-<h1>⛏️ Шахтёр 3.0</h1>
+<h1>в›ЏпёЏ РЁР°С…С‚С‘СЂ 3.0</h1>
 
-<!-- ================================
-     УРОВЕНЬ
-================================ -->
-
+<!-- РЈР РћР’Р•РќР¬ -->
 <div class="stat-row">
-    <span>⭐ Уровень:</span>
+    <span>в­ђ РЈСЂРѕРІРµРЅСЊ:</span>
     <span id="level">1</span>
-</div>
+</div</div>
 
 <div class="progress">
-    <div
-        id="xpFill"
-        class="progress-fill xp-fill">
-    </div>
+    <div id="xpFill" class="progress-fill xp-fill"></div>
 </div>
 
 <div class="stat-row">
-    <span>✨ Опыт:</span>
-
+    <span>вњЁ РћРїС‹С‚:</span>
     <span>
-        <span id="xp">0</span>
-        /
-        <span id="xpToLevel">50</span>
+        <span id="xp">0</span> / <span id="xpToLevel">50</span>
     </span>
 </div>
 
-
-<!-- ================================
-     ЭНЕРГИЯ
-================================ -->
-
+<!-- Р­РќР•Р Р“РРЇ -->
 <div class="progress">
-    <div
-        id="energyFill"
-        class="progress-fill energy-fill">
-    </div>
+    <div id="energyFill" class="progress-fill energy-fill"></div>
 </div>
 
 <div class="stat-row">
-    <span>⚡ Энергия:</span>
-
+    <span>вљЎ Р­РЅРµСЂРіРёСЏ:</span>
     <span>
-        <span id="energy">100</span>
-        /
-        <span id="maxEnergy">100</span>
+        <span id="energy">100</span> / <span id="maxEnergy">100</span>
     </span>
 </div>   
-    <!-- ================================
-     ТЕКУЩАЯ ШАХТА
-================================ -->
 
+<!-- РўР•РљРЈР©РђРЇ РЁРђРҐРўРђ -->
 <div class="section">
-
-<h2>📍 Текущая шахта</h2>
-
-<div class="pickaxe-box">
-
-    <div
-        id="currentMineIcon"
-        class="pickaxe-icon">
-        🪨
+    <h2>рџ“Ќ РўРµРєСѓС‰Р°СЏ С€Р°С…С‚Р°</h2>
+    <div class="pickaxe-box">
+        <div id="currentMineIcon" class="pickaxe-icon">рџЄЁ</div>
+        <div id="currentMineName" class="pickaxe-name">РљР°РјРµРЅРЅР°СЏ С€Р°С…С‚Р°</div>
+        <div id="currentMineDescription">Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ РїСѓС‚СЊ С€Р°С…С‚С‘СЂР°.</div>
     </div>
 
-    <div
-        id="currentMineName"
-        class="pickaxe-name">
-        Каменная шахта
+    <div class="stat-row">
+        <span>в¬‡пёЏ Р“Р»СѓР±РёРЅР°:</span>
+        <span><span id="depth">1</span> Рј</span>
     </div>
 
-    <div
-        id="currentMineDescription">
-        Здесь начинается путь шахтёра.
-    </div>
-
-</div>
-
-<div class="stat-row">
-    <span>⬇️ Глубина:</span>
-    <span id="depth">1</span> м</span>
-</div>
-
-<div class="progress">
-    <div
-        id="depthFill"
-        class="progress-fill depth-fill">
+    <div class="progress">
+        <div id="depthFill" class="progress-fill depth-fill"></div>
     </div>
 </div>
 
-</div>
+<!-- РљРћРџРђРќРР• -->
+<p id="hintText" class="hint">РќР°Р¶РјРё В«РљРћРџРђРўР¬В», С‡С‚РѕР±С‹ РЅР°С‡Р°С‚СЊ!</p>
 
-
-<!-- ================================
-     КОПАНИЕ
-================================ -->
-
-<p
-    id="hintText"
-    class="hint">
-    Нажми «КОПАТЬ», чтобы начать!
-</p>
-
-<button
-    id="mineBtn"
-    class="mine-button">
-
-    ⛏️ КОПАТЬ!
-
-</button>
-```html
-<!-- ================================
-     РЕСУРСЫ
-================================ -->
-
-<div class="section">
-
-<h2>🎒 Ресурсы</h2>
-
-<div class="inventory-grid">
-
-    <div class="inventory-item">
-        <span>🪨 Камень</span>
-        <span id="stone">0</span>
-    </div>
-
-    <div class="inventory-item">
-        <span>⛓️ Железо</span>
-        <span id="iron">0</span>
-    </div>
-
-    <div class="inventory-item">
-        <span>🥇 Золото</span>
-        <span id="gold">0</span>
-    </div>
-
-    <div class="inventory-item">
-        <span>💎 Алмаз</span>
-        <span id="diamond">0</span>
-    </div>
-
-    <div class="inventory-item">
-        <span>🔴 Рубин</span>
-        <span id="ruby">0</span>
-    </div>
-
-    <div class="inventory-item">
-        <span>🟣 Аметист</span>
-        <span id="amethyst">0</span>
-    </div>
-
-</div>
-
-<div class="stat-row">
-    <span>🪙 Монеты:</span>
-    <span id="coins">0</span>
-</div>
-
-</div>
-
-
-<!-- ================================
-     КАРТА ШАХТ
-================================ -->
-
-<div class="section">
-
-<h2>🗺️ Карта шахт</h2>
-
-<div
-    id="mineMap"
-    class="map-grid">
-</div>
-
-</div>
-
-
-<!-- ================================
-     КИРКА
-================================ -->
-
-<div class="section">
-
-<h2>⛏️ Кирка</h2>
-
-<div class="pickaxe-box">
-
-    <div id="pickaxeIcon"
-         class="pickaxe-icon">
-        🪵
-    </div>
-
-    <div
-        id="pickaxeName"
-        class="pickaxe-name">
-        Деревянная кирка
-    </div>
-
-    <div>
-        Сила:
-        <b id="pickaxePower">1</b>
-    </div>
-
-</div>
-
-<button
-    id="buyPickBtn"
-    class="blue-button">
-
-    ⛏️ Улучшить кирку
-
-    <small id="pickaxeCost">
-        75 🪙
-    </small>
-
+<button id="mineBtn" class="mine-button">
+    в›ЏпёЏ РљРћРџРђРўР¬!
 </button>
 
-</div>
-
-
-<!-- ================================
-     РЮКЗАК
-================================ -->
-
+<!-- Р Р•РЎРЈР РЎР« -->
 <div class="section">
+    <h2>рџЋ’ Р РµСЃСѓСЂСЃС‹</h2>
+    <div class="inventory-grid">
+        <div class="inventory-item"><span>рџЄЁ РљР°РјРµРЅСЊ</span><span id="stone">0</span></div>
+        <div class="inventory-item"><span>в›“пёЏ Р–РµР»РµР·Рѕ</span><span id="iron">0</span></div>
+        <div class="inventory-item"><span>рџҐ‡ Р—РѕР»РѕС‚Рѕ</span><span id="gold">0</span></div>
+        <div class="inventory-item"><span>рџ’Ћ РђР»РјР°Р·</span><span id="diamond">0</span></div>
+        <div class="inventory-item"><span>рџ”ґ Р СѓР±РёРЅ</span><span id="ruby">0</span></div>
+        <div class="inventory-item"><span>рџџЈ РђРјРµС‚РёСЃС‚</span><span id="amethyst">0</span></div>
+    </div>
 
-<h2>🎒 Рюкзак</h2>
-
-<div class="stat-row">
-
-    <span>Мест:</span>
-
-    <span>
-        <span id="usedSlots">0</span>
-        /
-        <span id="bagSize">30</span>
-    </span>
-
+    <div class="stat-row" style="margin-top: 10px;">
+        <span>рџЄ™ РњРѕРЅРµС‚С‹:</span>
+        <span id="coins" style="font-weight: bold; color: #f1c40f;">0</span>
+    </div>
 </div>
 
-<button
-    id="bagBtn"
-    class="green-button">
-
-    🎒 Улучшить рюкзак
-
-    <small id="bagCost">
-        150 🪙
-    </small>
-
-</button>
-
-</div>
-
-
-<!-- ================================
-     ЗАДАНИЯ
-================================ -->
-
+<!-- РљРђР РўРђ РЁРђРҐРў -->
 <div class="section">
-
-<h2>📋 Задания</h2>
-
-<div id="quests"></div>
-
+    <h2>рџ—єпёЏ РљР°СЂС‚Р° С€Р°С…С‚</h2>
+    <div id="mineMap" class="map-grid"></div>
 </div>
 
-
-<!-- ================================
-     РЫНОК
-================================ -->
-
+<!-- РљРР РљРђ -->
 <div class="section">
+    <h2>в›ЏпёЏ РљРёСЂРєР°</h2>
+    <div class="pickaxe-box">
+        <div id="pickaxeIcon" class="pickaxe-icon">рџЄµ</div>
+        <div id="pickaxeName" class="pickaxe-name">Р”РµСЂРµРІСЏРЅРЅР°СЏ РєРёСЂРєР°</div>
+        <div>РЎРёР»Р°: <b id="pickaxePower">1</b></div>
+    </div>
 
-<h2>🏪 Рынок</h2>
-
-<button
-    id="sellStoneBtn"
-    class="gray-button">
-
-    🪨 Продать 10 камня
-
-    <small>
-        +5 🪙
-    </small>
-
-</button>
-
-<button
-    id="sellIronBtn"
-    class="gray-button">
-
-    ⛓️ Продать 10 железа
-
-    <small>
-        +30 🪙
-    </small>
-
-</button>
-
-<button
-    id="sellGoldBtn"
-    class="gray-button">
-
-    🥇 Продать 5 золота
-
-    <small>
-        +50 🪙
-    </small>
-
-</button>
-
-<button
-    id="sellDiamondBtn"
-    class="gray-button">
-
-    💎 Продать 1 алмаз
-
-    <small>
-        +100 🪙
-    </small>
-
-</button>
-
+    <button id="buyPickBtn" class="blue-button">
+        в›ЏпёЏ РЈР»СѓС‡С€РёС‚СЊ РєРёСЂРєСѓ
+        <small id="pickaxeCost">75 рџЄ™</small>
+    </button>
 </div>
 
-
-<!-- ================================
-     ОТДЫХ
-================================ -->
-
+<!-- Р Р®РљР—РђРљ -->
 <div class="section">
+    <h2>рџЋ’ Р СЋРєР·Р°Рє</h2>
+    <div class="stat-row">
+        <span>РњРµСЃС‚:</span>
+        <span><span id="usedSlots">0</span> / <span id="bagSize">30</span></span>
+    </div>
 
-<button
-    id="restBtn"
-    class="dark-button">
-
-    🛌 Отдохнуть
-
-    <small>
-        +100 ⚡ за 100 🪙
-    </small>
-
-</button>
-
+    <button id="bagBtn" class="green-button">
+        рџЋ’ РЈР»СѓС‡С€РёС‚СЊ СЂСЋРєР·Р°Рє
+        <small id="bagCost">150 рџЄ™</small>
+    </button>
 </div>
 
+<!-- Р—РђР”РђРќРРЇ -->
+<div class="section">
+    <h2>рџ“‹ Р—Р°РґР°РЅРёСЏ</h2>
+    <div id="quests"></div>
+</div>
 
+<!-- Р Р«РќРћРљ -->
+<div class="section">
+    <h2>рџЏЄ Р С‹РЅРѕРє</h2>
+    <button id="sellStoneBtn" class="gray-button">
+        рџЄЁ РџСЂРѕРґР°С‚СЊ 10 РєР°РјРЅСЏ <small>+5 рџЄ™</small>
+    </button>
+    <button id="sellIronBtn" class="gray-button">
+        в›“пёЏ РџСЂРѕРґР°С‚СЊ 10 Р¶РµР»РµР·Р° <small>+30 рџЄ™</small>
+    </button>
+    <button id="sellGoldBtn" class="gray-button">
+        рџҐ‡ РџСЂРѕРґР°С‚СЊ 5 Р·РѕР»РѕС‚Р° <small>+50 рџЄ™</small>
+    </button>
+    <button id="sellDiamondBtn" class="gray-button">
+        рџ’Ћ РџСЂРѕРґР°С‚СЊ 1 Р°Р»РјР°Р· <small>+100 рџЄ™</small>
+    </button>
+</div>
+
+<!-- РћРўР”Р«РҐ -->
+<div class="section">
+    <button id="restBtn" class="dark-button">
+        рџ›Њ РћС‚РґРѕС…РЅСѓС‚СЊ <small>+100 вљЎ Р·Р° 100 рџЄ™</small>
+    </button>
+</div>
+ 
 <div class="footer">
-    ⛏️ Шахтёр 3.0
+    в›ЏпёЏ РЁР°С…С‚С‘СЂ 3.0
 </div>
 
 </div>
-    
-```
+
 <script>
-
 /* =========================================================
-   TELEGRAM И ШАХТЫ
+   TELEGRAM Р РљРћРќР¤РР“РЈР РђР¦РРЇ
 ========================================================= */
 
 const tg = window.Telegram?.WebApp;
@@ -780,32 +445,30 @@ if (tg) {
 }
 
 const mines = [
-    { id: "stone", name: "Каменная шахта", icon: "🪨", description: "Безопасная шахта для начинающих.", requiredLevel: 1, maxDepth: 100, rewards: "🪨 Камень • ⛓️ Железо", color: "#667985" },
-    { id: "gold", name: "Золотая шахта", icon: "🥇", description: "Здесь уже можно найти настоящие богатства.", requiredLevel: 5, maxDepth: 250, rewards: "⛓️ Железо • 🥇 Золото", color: "#d4a72c" },
-    { id: "diamond", name: "Алмазная шахта", icon: "💎", description: "Глубокие пещеры с шансом найти алмазы.", requiredLevel: 12, maxDepth: 500, rewards: "🥇 Золото • 💎 Алмаз", color: "#55c9ed" },
-    { id: "ruby", name: "Кристальная шахта", icon: "🔴", description: "Редкие кристаллы находятся здесь.", requiredLevel: 25, maxDepth: 1000, rewards: "💎 Алмаз • 🔴 Рубин", color: "#d94c65" },
-    { id: "hell", name: "Лавовая шахта", icon: "🌋", description: "Опасное место. Здесь очень жарко.", requiredLevel: 40, maxDepth: 2000, rewards: "🔴 Рубин • 🟣 Аметист", color: "#e56b32" },
-    { id: "space", name: "Космическая шахта", icon: "🌌", description: "Последний уровень. Ресурсы стоят целое состояние.", requiredLevel: 75, maxDepth: 5000, rewards: "💎 Алмаз • 🔴 Рубин • 🟣 Аметист", color: "#8b68d4" }
+    { id: "stone", name: "РљР°РјРµРЅРЅР°СЏ С€Р°С…С‚Р°", icon: "рџЄЁ", description: "Р‘РµР·РѕРїР°СЃРЅР°СЏ С€Р°С…С‚Р° РґР»СЏ РЅР°С‡РёРЅР°СЋС‰РёС….", requiredLevel: 1, maxDepth: 100, rewards: "рџЄЁ РљР°РјРµРЅСЊ вЂў в›“пёЏ Р–РµР»РµР·Рѕ" },
+    { id: "gold", name: "Р—РѕР»РѕС‚Р°СЏ С€Р°С…С‚Р°", icon: "рџҐ‡", description: "Р—РґРµСЃСЊ РјРѕР¶РЅРѕ РЅР°Р№С‚Рё РЅР°СЃС‚РѕСЏС‰РёРµ Р±РѕРіР°С‚СЃС‚РІР°.", requiredLevel: 5, maxDepth: 250, rewards: "в›“пёЏ Р–РµР»РµР·Рѕ вЂў рџҐ‡ Р—РѕР»РѕС‚Рѕ" },
+    { id: "diamond", name: "РђР»РјР°Р·РЅР°СЏ С€Р°С…С‚Р°", icon: "рџ’Ћ", description: "Р“Р»СѓР±РѕРєРёРµ РїРµС‰РµСЂС‹ СЃ Р°Р»РјР°Р·Р°РјРё.", requiredLevel: 12, maxDepth: 500, rewards: "рџҐ‡ Р—РѕР»РѕС‚Рѕ вЂў рџ’Ћ РђР»РјР°Р·" },
+    { id: "ruby", name: "РљСЂРёСЃС‚Р°Р»СЊРЅР°СЏ С€Р°С…С‚Р°", icon: "рџ”ґ", description: "Р РµРґРєРёРµ РєСЂРёСЃС‚Р°Р»Р»С‹ РЅР°С…РѕРґСЏС‚СЃСЏ Р·РґРµСЃСЊ.", requiredLevel: 25, maxDepth: 1000, rewards: "рџ’Ћ РђР»РјР°Р· вЂў рџ”ґ Р СѓР±РёРЅ" },
+    { id: "hell", name: "Р›Р°РІРѕРІР°СЏ С€Р°С…С‚Р°", icon: "рџЊ‹", description: "РћРїР°СЃРЅРѕРµ Рё РѕС‡РµРЅСЊ Р¶Р°СЂРєРѕРµ РјРµСЃС‚Рѕ.", requiredLevel: 40, maxDepth: 2000, rewards: "рџ”ґ Р СѓР±РёРЅ вЂў рџџЈ РђРјРµС‚РёСЃС‚" },
+    { id: "space", name: "РљРѕСЃРјРёС‡РµСЃРєР°СЏ С€Р°С…С‚Р°", icon: "рџЊЊ", description: "Р РµСЃСѓСЂСЃС‹ СЃС‚РѕСЏС‚ С†РµР»РѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ.", requiredLevel: 75, maxDepth: 5000, rewards: "рџ’Ћ РђР»РјР°Р· вЂў рџ”ґ Р СѓР±РёРЅ вЂў рџџЈ РђРјРµС‚РёСЃС‚" }
 ];
 
 const pickaxes = [
-    { name: "Деревянная", icon: "🪵", power: 1, cost: 0 },
-    { name: "Каменная", icon: "🪨", power: 2, cost: 75 },
-    { name: "Железная", icon: "⛓️", power: 4, cost: 300 },
-    { name: "Золотая", icon: "🥇", power: 8, cost: 900 },
-    { name: "Алмазная", icon: "💎", power: 16, cost: 2500 },
-    { name: "Огненная", icon: "🔥", power: 32, cost: 7500 },
-    { name: "Магическая", icon: "🧙", power: 64, cost: 25000 },
-    { name: "Космическая", icon: "🚀", power: 128, cost: 100000 }
-    /* =========================================================
-   ЗАДАНИЯ И СОСТОЯНИЕ ИГРЫ
-========================================================= */
+    { name: "Р”РµСЂРµРІСЏРЅРЅР°СЏ", icon: "рџЄµ", power: 1, cost: 0 },
+    { name: "РљР°РјРµРЅРЅР°СЏ", icon: "рџЄЁ", power: 2, cost: 75 },
+    { name: "Р–РµР»РµР·РЅР°СЏ", icon: "в›“пёЏ", power: 4, cost: 300 },
+    { name: "Р—РѕР»РѕС‚Р°СЏ", icon: "рџҐ‡", power: 8, cost: 900 },
+    { name: "РђР»РјР°Р·РЅР°СЏ", icon: "рџ’Ћ", power: 16, cost: 2500 },
+    { name: "РћРіРЅРµРЅРЅР°СЏ", icon: "рџ”Ґ", power: 32, cost: 7500 },
+    { name: "РњР°РіРёС‡РµСЃРєР°СЏ", icon: "рџ§™", power: 64, cost: 25000 },
+    { name: "РљРѕСЃРјРёС‡РµСЃРєР°СЏ", icon: "рџљЂ", power: 128, cost: 100000 }
+];
 
 const questTemplates = [
-    { id: "mine50", title: "⛏️ Начало пути", description: "Сделать 50 копаний", target: 50, rewardCoins: 100, rewardXP: 50, type: "mine" },
-    { id: "stone100", title: "🪨 Каменщик", description: "Добыть 100 камня", target: 100, rewardCoins: 150, rewardXP: 70, type: "stone" },
-    { id: "iron20", title: "⛓️ Железная жила", description: "Добыть 20 железа", target: 20, rewardCoins: 250, rewardXP: 100, type: "iron" },
-    { id: "gold10", title: "🥇 Золотая жила", description: "Добыть 10 золота", target: 10, rewardCoins: 500, rewardXP: 150, type: "gold" }
+    { id: "mine50", title: "в›ЏпёЏ РќР°С‡Р°Р»Рѕ РїСѓС‚Рё", target: 50, rewardCoins: 100, rewardXP: 50, type: "mine" },
+    { id: "stone100", title: "рџЄЁ РљР°РјРµРЅС‰РёРє", target: 100, rewardCoins: 150, rewardXP: 70, type: "stone" },
+    { id: "iron20", title: "в›“пёЏ Р–РµР»РµР·РЅР°СЏ Р¶РёР»Р°", target: 20, rewardCoins: 250, rewardXP: 100, type: "iron" },
+    { id: "gold10", title: "рџҐ‡ Р—РѕР»РѕС‚Р°СЏ Р¶РёР»Р°", target: 10, rewardCoins: 500, rewardXP: 150, type: "gold" }
 ];
 
 const defaultGame = {
@@ -815,33 +478,25 @@ const defaultGame = {
     level: 1, xp: 0, xpToLevel: 50,
     pickaxeLevel: 1, power: 1,
     bagSize: 30, bagLevel: 1, bagCost: 150,
-    currentMine: "stone", depth: 0, totalMines: 0,
-    quests: [], chestCount: 0
+    currentMine: "stone", depth: 1, totalMines: 0,
+    quests: []
 };
 
 let game;
 
 try {
     const saved = localStorage.getItem("miner_save");
-    if (saved) {
-        game = { ...defaultGame, ...JSON.parse(saved) };
-    } else {
-        game = { ...defaultGame };
-    }
+    game = saved ? { ...defaultGame, ...JSON.parse(saved) } : { ...defaultGame };
 } catch (error) {
     game = { ...defaultGame };
 }
 
 if (!game.quests || game.quests.length === 0) {
-    game.quests = questTemplates.map(q => ({
-        id: q.id, progress: 0, completed: false
-    }));
+    game.quests = questTemplates.map(q => ({ id: q.id, progress: 0, completed: false }));
 } else {
     questTemplates.forEach(template => {
         if (!game.quests.some(q => q.id === template.id)) {
-            game.quests.push({
-                id: template.id, progress: 0, completed: false
-            });
+            game.quests.push({ id: template.id, progress: 0, completed: false });
         }
     });
 }
@@ -857,32 +512,17 @@ function showMessage(text) {
     message.textContent = text;
     area.appendChild(message);
     setTimeout(() => message.remove(), 1900);
-    /* =========================================================
-   ПОП-АПЫ, КВЕСТЫ И ОПЫТ
-========================================================= */
-
-function createTapPop(text) {
-    const btn = document.getElementById("mineBtn");
-    const pop = document.createElement("div");
-    pop.className = "tap-pop";
-    pop.textContent = text;
-
-    const rect = btn.getBoundingClientRect();
-    pop.style.left = (rect.left + rect.width / 2 - 20) + "px";
-    pop.style.top = (rect.top + window.scrollY + 5) + "px";
-
-    document.body.appendChild(pop);
-    setTimeout(() => pop.remove(), 800);
 }
 
 function getCurrentMine() {
-    return mines.find(mine => mine.id === game.currentMine) || mines[0];
+    return mines.find(m => m.id === game.currentMine) || mines[0];
+}
+function getCurrentMine() {
+    return mines.find(m => m.id === game.currentMine) || mines[0];
 }
 
 function getUsedSlots() {
-    return (
-        game.stone + game.iron + game.gold + game.diamond + game.ruby + game.amethyst
-    );
+    return game.stone + game.iron + game.gold + game.diamond + game.ruby + game.amethyst;
 }
 
 function addXP(amount) {
@@ -899,7 +539,7 @@ function addXP(amount) {
     }
 
     if (levelUps > 0) {
-        showMessage(`🎉 Новый уровень: ${game.level}! +10 ⚡`);
+        showMessage(`рџЋ‰ РќРѕРІС‹Р№ СѓСЂРѕРІРµРЅСЊ: ${game.level}! +10 вљЎ`);
     }
 }
 
@@ -913,12 +553,11 @@ function updateQuestsProgress(type, value = 1) {
                 quest.completed = true;
                 game.coins += template.rewardCoins;
                 addXP(template.rewardXP);
-                showMessage(`✅ Задание "${template.title}" выполнено! Получено: ${template.rewardCoins} 🪙, ${template.rewardXP} ✨`);
+                showMessage(`вњ… РљРІРµСЃС‚ "${template.title}" РІС‹РїРѕР»РЅРµРЅ! +${template.rewardCoins} рџЄ™`);
             }
         }
     });
     renderQuests();
-    saveGame();
 }
 
 function renderQuests() {
@@ -933,60 +572,207 @@ function renderQuests() {
         questDiv.className = `quest ${quest.completed ? 'completed' : ''}`;
         questDiv.innerHTML = `
             <div class="quest-title">${template.title}</div>
-            <div class="quest-progress">Прогресс: ${Math.min(quest.progress, template.target)}/${template.target}</div>
-            <div class="quest-reward">Награда: ${template.rewardCoins} 🪙, ${template.rewardXP} ✨</div>
+            <div class="quest-progress">РџСЂРѕРіСЂРµСЃСЃ: ${Math.min(quest.progress, template.target)}/${template.target}</div>
+            <div class="quest-reward">РќР°РіСЂР°РґР°: ${template.rewardCoins} рџЄ™, ${template.rewardXP} вњЁ</div>
         `;
         questsArea.appendChild(questDiv);
     });
 }
-/* =========================================================
-   КАРТА ШАХТ
-========================================================= */
 
 function renderMineMap() {
     const map = document.getElementById("mineMap");
     map.innerHTML = "";
 
-    mines.forEach(mine => {
+    mines.forEach(m => {
+        const isLocked = game.level < m.requiredLevel;
+        const isCurrent = game.currentMine === m.id;
+
         const mineCard = document.createElement("div");
-        mineCard.className = `mine-card ${game.currentMine === mine.id ? 'current' : ''} ${game.level < mine.requiredLevel ? 'locked' : ''}`;
-        mineCard.onclick = () => selectMine(mine.id);
+        mineCard.className = `mine-card ${isCurrent ? 'current' : ''} ${isLocked ? 'locked' : ''}`;
+        mineCard.onclick = () => selectMine(m.id);
 
         mineCard.innerHTML = `
-            ${game.level < mine.requiredLevel ? '<span class="lock-icon">🔒</span>' : ''}
-            <div class="mine-icon">${mine.icon}</div>
-            <div class="mine-name">${mine.name}</div>
-            <div class="mine-level">Ур. ${mine.requiredLevel}+</div>
-            <div class="mine-reward">${mine.rewards}</div>
+            ${isLocked ? '<span class="lock-icon">рџ”’</span>' : ''}
+            <div class="mine-icon">${m.icon}</div>
+            <div class="mine-name">${m.name}</div>
+            <div class="mine-level">РЈСЂ. ${m.requiredLevel}+</div>
+            <div class="mine-reward">${m.rewards}</div>
         `;
         map.appendChild(mineCard);
     });
 }
 
-/* =========================================================
-   ВЫБОР ШАХТЫ
-========================================================= */
-
 function selectMine(mineId) {
-    const selectedMine = mines.find(m => m.id === mineId);
-    if (!selectedMine) return;
+    const target = mines.find(m => m.id === mineId);
+    if (!target) return;
 
-    if (game.level < selectedMine.requiredLevel) {
-        showMessage(`❌ Нужно ${selectedMine.requiredLevel} ур. для этой шахты!`);
+    if (game.level < target.requiredLevel) {
+        showMessage(`рџ”’ РўСЂРµР±СѓРµС‚СЃСЏ ${target.requiredLevel} СѓСЂРѕРІРµРЅСЊ!`);
+        return;
+    }}
+
+    game.currentMine = mineId;
+    game.depth = 1;
+    showMessage(`рџ“Ќ Р’С‹ РїРµСЂРµС€Р»Рё РІ: ${target.name}`);
+    renderMineMap();
+    updateUI();
+    saveGame();
+}
+
+function mine() {
+    if (game.energy < 1) {
+        showMessage("вљЎ РќРµ С…РІР°С‚Р°РµС‚ СЌРЅРµСЂРіРёРё! РћС‚РґРѕС…РЅРёС‚Рµ.");
         return;
     }
 
-    game.currentMine = mineId;
-    game.depth = 0;
-    showMessage(`Вы выбрали ${selectedMine.name}!`);
-    saveGame();
+    if (getUsedSlots() >= game.bagSize) {
+        showMessage("рџЋ’ Р СЋРєР·Р°Рє РїРѕР»РѕРЅ! РџСЂРѕРґР°Р№С‚Рµ СЂРµСЃСѓСЂСЃС‹.");
+        return;
+    }
+
+    game.energy -= 1;
+    game.totalMines += 1;
+    const curMine = getCurrentMine();
+    game.depth = Math.min(game.depth + 1, curMine.maxDepth);
+
+    const pIndex = Math.min(game.pickaxeLevel - 1, pickaxes.length - 1);
+    const power = pickaxes[pIndex].power;
+
+    let dropsText = [];
+    
+    if (curMine.id === "stone") {
+        let amt = Math.floor(1 * power);
+        game.stone += amt;
+        dropsText.push(`+${amt} рџЄЁ`);
+        if (Math.random() < 0.3) {
+            let iAmt = Math.max(1, Math.floor(power / 2));
+            game.iron += iAmt;
+            dropsText.push(`+${iAmt} в›“пёЏ`);
+            updateQuestsProgress("iron", iAmt);
+        }
+        updateQuestsProgress("stone", amt);
+    } else if (curMine.id === "gold") {
+        let iAmt = Math.floor(1 * power);
+        game.iron += iAmt;
+        let gAmt = Math.floor(1 * power);
+        game.gold += gAmt;
+        dropsText.push(`+${iAmt} в›“пёЏ +${gAmt} рџҐ‡`);
+        updateQuestsProgress("gold", gAmt);
+    } else if (curMine.id === "diamond") {
+        let gAmt = Math.floor(1 * power);
+        game.gold += gAmt;
+        let dAmt = Math.max(1, Math.floor(power / 2));
+        game.diamond += dAmt;
+        dropsText.push(`+${gAmt} рџҐ‡ +${dAmt} рџ’Ћ`);
+    } else if (curMine.id === "ruby") {
+        let dAmt = Math.floor(1 * power);
+        game.diamond += dAmt;
+        let rAmt = Math.max(1, Math.floor(power / 2));
+        game.ruby += rAmt;
+        dropsText.push(`+${dAmt} рџ’Ћ +${rAmt} рџ”ґ`);
+    } else if (curMine.id === "hell") {
+        let rAmt = Math.floor(1 * power);
+        game.ruby += rAmt;
+        let aAmt = Math.max(1, Math.floor(power / 2));
+        game.amethyst += aAmt;
+        dropsText.push(`+${rAmt} рџ”ґ +${aAmt} рџџЈ`);
+    } else if (curMine.id === "space") {
+        let dAmt = Math.floor(1 * power);
+        let rAmt = Math.floor(1 * power);
+        let aAmt = Math.floor(1 * power);
+        game.diamond += dAmt; game.ruby += rAmt; game.amethyst += aAmt;
+        dropsText.push(`+${dAmt} рџ’Ћ +${rAmt} рџ”ґ +${aAmt} рџџЈ`);
+    }
+
+    addXP(2);
+    updateQuestsProgress("mine", 1);
+
+    const btn = document.getElementById("mineBtn");
+    btn.classList.add("mine-animation");
+    setTimeout(() => btn.classList.remove("mine-animation"), 180);
+
     updateUI();
-    renderMineMap();
-    /* =========================================================
-   ОБНОВЛЕНИЕ ИНТЕРФЕЙСА
-========================================================= */
+    saveGame();
+}
+
+function upgradePickaxe() {
+    if (game.pickaxeLevel >= pickaxes.length) {
+        showMessage("рџ‘‘ РЈ РІР°СЃ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РєРёСЂРєР°!");
+        return;
+    }
+
+    const nextP = pickaxes[game.pickaxeLevel];
+    if (game.coins >= nextP.cost) {
+        game.coins -= nextP.cost;
+        game.pickaxeLevel += 1;
+        game.power = nextP.power;
+        showMessage(`рџЋ‰ РљСѓРїР»РµРЅР° ${nextP.name} РєРёСЂРєР°!`);
+        updateUI();
+        saveGame();
+    } else {
+        showMessage(`вќЊ РќСѓР¶РЅРѕ ${nextP.cost} рџЄ™!`);
+    }
+}
+
+function upgradeBag() {
+    if (game.coins >= game.bagCost) {
+        game.coins -= game.bagCost;
+        game.bagSize += 20;
+        game.bagCost = Math.floor(game.bagCost * 2.2);
+        showMessage(`рџЋ’ Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ СЂСЋРєР·Р°РєР°: ${game.bagSize}`);
+        updateUI();
+        saveGame();
+    } else {
+        showMessage(`вќЊ РќСѓР¶РЅРѕ ${game.bagCost} рџЄ™!`);
+    }
+}
+
+function sellResource(type, count, reward) {
+    if (game[type] >= count) {
+        game[type] -= count;
+        game.coins += reward;
+        showMessage(`рџ’° +${reward} рџЄ™`);
+        updateUI();
+        saveGame();
+    } else {
+        showMessage("вќЊ РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЂРµСЃСѓСЂСЃРѕРІ!");
+    }
+}
+
+function rest() {
+    if (game.coins < 100) {
+        showMessage("вќЊ РќСѓР¶РЅРѕ 100 рџЄ™!");
+        return;
+    }
+    if (game.energy >= game.maxEnergy) {
+        showMessage("вљЎ Р­РЅРµСЂРіРёСЏ СѓР¶Рµ РїРѕР»РЅР°СЏ!");
+        return;
+    }
+
+    game.coins -= 100;
+    game.energy = Math.min(game.maxEnergy, game.energy + 100);
+    showMessage("рџ›Њ Р’С‹ РѕС‚РґРѕС…РЅСѓР»Рё! +100 вљЎ");
+    updateUI();
+    saveGame();
+}
 
 function updateUI() {
+    document.getElementById("level").textContent = game.level;
+    document.getElementById("xp").textContent = game.xp;
+    document.getElementById("xpToLevel").textContent = game.xpToLevel;
+    document.getElementById("xpFill").style.width = Math.min(100, (game.xp / game.xpToLevel) * 100) + "%";
+
+    document.getElementById("energy").textContent = game.energy;
+    document.getElementById("maxEnergy").textContent = game.maxEnergy;
+    document.getElementById("energyFill").style.width = Math.min(100, (game.energy / game.maxEnergy) * 100) + "%";
+
+    const curMine = getCurrentMine();
+    document.getElementById("currentMineIcon").textContent = curMine.icon;
+    document.getElementById("currentMineName").textContent = curMine.name;
+    document.getElementById("currentMineDescription").textContent = curMine.description;
+    document.getElementById("depth").textContent = game.depth;
+    document.getElementById("depthFill").style.width = Math.min(100, (game.depth / curMine.maxDepth) * 100) + "%";
+
     document.getElementById("stone").textContent = game.stone;
     document.getElementById("iron").textContent = game.iron;
     document.getElementById("gold").textContent = game.gold;
@@ -994,190 +780,47 @@ function updateUI() {
     document.getElementById("ruby").textContent = game.ruby;
     document.getElementById("amethyst").textContent = game.amethyst;
     document.getElementById("coins").textContent = game.coins;
-    document.getElementById("energy").textContent = game.energy;
-    document.getElementById("maxEnergy").textContent = game.maxEnergy;
-    document.getElementById("level").textContent = game.level;
-    document.getElementById("xp").textContent = game.xp;
-    document.getElementById("xpToLevel").textContent = game.xpToLevel;
-    document.getElementById("depth").textContent = game.depth;
 
-    const currentMineData = getCurrentMine();
-    document.getElementById("currentMineIcon").textContent = currentMineData.icon;
-    document.getElementById("currentMineName").textContent = currentMineData.name;
-    document.getElementById("currentMineDescription").textContent = currentMineData.description;
+    const pIndex = Math.min(game.pickaxeLevel - 1, pickaxes.length - 1);
+    const pData = pickaxes[pIndex];
+    document.getElementById("pickaxeIcon").textContent = pData.icon;
+    document.getElementById("pickaxeName").textContent = pData.name + " РєРёСЂРєР°";
+    document.getElementById("pickaxePower").textContent = pData.power;
 
-    const pickIndex = Math.max(0, Math.min(game.pickaxeLevel - 1, pickaxes.length - 1));
-    const currentPick = pickaxes[pickIndex];
-    game.power = currentPick.power;
-    document.getElementById("pickaxeIcon").textContent = currentPick.icon;
-    document.getElementById("pickaxeName").textContent = currentPick.name;
-    document.getElementById("pickaxePower").textContent = currentPick.power;
-
-    document.getElementById("xpFill").style.width = Math.min(100, (game.xp / game.xpToLevel) * 100) + "%";
-    document.getElementById("energyFill").style.width = Math.max(0, Math.min(100, (game.energy / game.maxEnergy) * 100)) + "%";
-    document.getElementById("depthFill").style.width = Math.min(100, (game.depth / currentMineData.maxDepth) * 100) + "%";
-
-    const nextPick = pickaxes[game.pickaxeLevel];
-    const buyPickButton = document.getElementById("buyPickBtn");
-    if (nextPick) {
-        document.getElementById("pickaxeCost").textContent = nextPick.cost + " 🪙";
-        buyPickButton.disabled = game.coins < nextPick.cost;
+    const nextP = pickaxes[game.pickaxeLevel];
+    if (nextP) {
+        document.getElementById("pickaxeCost").textContent = `${nextP.cost} рџЄ™`;
     } else {
-        document.getElementById("pickaxeCost").textContent = "МАКСИМАЛЬНАЯ";
-        buyPickButton.disabled = true;
+        document.getElementById("pickaxeCost").textContent = "РњРђРљРЎРРњРЈРњ";
     }
-
     document.getElementById("usedSlots").textContent = getUsedSlots();
     document.getElementById("bagSize").textContent = game.bagSize;
-    document.getElementById("bagCost").textContent = game.bagCost + " 🪙";
-    document.getElementById("bagBtn").disabled = game.coins < game.bagCost;
-
-    const mineButton = document.getElementById("mineBtn");
-    const isBagFull = getUsedSlots() >= game.bagSize;
-
-    if (game.energy <= 0 || isBagFull) {
-        mineButton.disabled = true;
-        mineButton.textContent = isBagFull ? "🎒 РЮКЗАК ПОЛОН" : "⏳ НЕТ ЭНЕРГИИ";
-        document.getElementById("hintText").textContent = isBagFull ? "Продай ресурсы, чтобы продолжить!" : "Восстанови энергию!";
-    } else {
-        mineButton.disabled = false;
-        mineButton.textContent = "⛏️ КОПАТЬ!";
-        document.getElementById("hintText").textContent = game.energy < game.maxEnergy ? "Копай руду и находи сокровища!" : 'Нажми "КОПАТЬ", чтобы начать!';
-    }
-
-    saveGame();
-    renderQuests();
-    renderMineMap();
-    /* =====================================================
-   ДОБЫЧА
-===================================================== */
-
-function mine() {
-    if (game.energy <= 0) { showMessage("⛔ Недостаточно энергии!"); return; }
-    if (getUsedSlots() >= game.bagSize) { showMessage("🎒 Рюкзак переполнен! Продай ресурсы."); return; }
-
-    const energyCost = Math.max(1, Math.ceil(game.power / 8));
-    game.energy = Math.max(0, game.energy - energyCost);
-
-    const mineButton = document.getElementById("mineBtn");
-    mineButton.classList.add("mine-animation");
-    if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
-
-    game.depth = Math.min(getCurrentMine().maxDepth, game.depth + 1);
-    const amount = Math.max(1, Math.floor(game.power * (0.7 + Math.random() * 0.6)));
-    const currentMineData = getCurrentMine();
-
-    const baseRareBonus = game.power * 0.0015;
-    const rareBonusPerMine = { stone: 0, gold: 0.02, diamond: 0.05, ruby: 0.08, hell: 0.10, space: 0.15 }[currentMineData.id] || 0;
-    const totalRareBonus = Math.min(0.15, baseRareBonus + rareBonusPerMine);
-
-    const random = Math.random();
-    let rewardText = "";
-
-    if (random < 0.01 + totalRareBonus) {
-        const diamonds = Math.max(1, Math.floor(game.power / 16));
-        game.diamond += diamonds;
-        game.coins += diamonds * 25;
-        addXP(10);
-        rewardText = `💎 +${diamonds} Алмаз! +${diamonds * 25} 🪙`;
-        updateQuestsProgress('diamond', diamonds);
-    } else if (random < 0.06 + totalRareBonus) {
-        const gold = Math.max(1, Math.floor(game.power / 8));
-        game.gold += gold;
-        game.coins += gold * 8;
-        addXP(6);
-        rewardText = `🥇 +${gold} Золото! +${gold * 8} 🪙`;
-        updateQuestsProgress('gold', gold);
-    } else if (random < 0.20 + totalRareBonus) {
-        const iron = Math.max(1, Math.floor(game.power / 4));
-        game.iron += iron;
-        game.coins += iron * 3;
-        addXP(4);
-        rewardText = `⛓️ +${iron} Железо! +${iron * 3} 🪙`;
-        updateQuestsProgress('iron', iron);
-    } else {
-        game.stone += amount;
-        game.coins += Math.max(1, Math.floor(amount / 2));
-        addXP(2);
-        rewardText = `🪨 +${amount} Камень`;
-        updateQuestsProgress('stone', amount);
-    }
-
-    createTapPop(rewardText);
-    showMessage(rewardText);
-    updateQuestsProgress('mine', 1);
-
-    mineButton.addEventListener('animationend', () => { mineButton.classList.remove("mine-animation"); }, { once: true });
-    updateUI();
-    function buyPickaxe() {
-    const nextPick = pickaxes[game.pickaxeLevel];
-    if (!nextPick) { showMessage("🏆 У тебя максимальная кирка!"); return; }
-    if (game.coins < nextPick.cost) { showMessage("❌ Недостаточно монет!"); return; }
-    game.coins -= nextPick.cost;
-    game.pickaxeLevel++;
-    showMessage(`⛏️ Получена ${nextPick.name}! Сила: ${nextPick.power}`);
-    updateUI();
+    document.getElementById("bagCost").textContent = `${game.bagCost} рџЄ™`;
 }
 
-function buyBag() {
-    if (game.coins < game.bagCost) { showMessage("❌ Недостаточно монет!"); return; }
-    game.coins -= game.bagCost;
-    game.bagSize += 10;
-    game.bagLevel++;
-    game.bagCost = Math.floor(game.bagCost * 1.6);
-    showMessage(`🎒 Рюкзак улучшен! +10 мест. Теперь ${game.bagSize}.`);
-    updateUI();
-}
+// РџСЂРёРІСЏР·РєР° РєРЅРѕРїРѕРє
+document.getElementById("mineBtn").onclick = mine;
+document.getElementById("buyPickBtn").onclick = upgradePickaxe;
+document.getElementById("bagBtn").onclick = upgradeBag;
+document.getElementById("sellStoneBtn").onclick = () => sellResource("stone", 10, 5);
+document.getElementById("sellIronBtn").onclick = () => sellResource("iron", 10, 30);
+document.getElementById("sellGoldBtn").onclick = () => sellResource("gold", 5, 50);
+document.getElementById("sellDiamondBtn").onclick = () => sellResource("diamond", 1, 100);
+document.getElementById("restBtn").onclick = rest;
 
-function sellStone() {
-    if (game.stone < 10) { showMessage("🪨 Нужно минимум 10 камня!"); return; }
-    game.stone -= 10; game.coins += 5; showMessage("💰 Продано 10 камня! +5 🪙"); updateUI();
-}
-
-function sellIron() {
-    if (game.iron < 10) { showMessage("⛓️ Нужно минимум 10 железа!"); return; }
-    game.iron -= 10; game.coins += 30; showMessage("💰 Продано 10 железа! +30 🪙"); updateUI();
-}
-function sellGold() {
-    if (game.gold < 5) { showMessage("🥇 Нужно минимум 5 золота!"); return; }
-    game.gold -= 5; game.coins += 50; showMessage("💰 Продано 5 золота! +50 🪙"); updateUI();
-}
-
-function sellDiamond() {
-    if (game.diamond < 1) { showMessage("💎 Нужно минимум 1 алмаз!"); return; }
-    game.diamond -= 1; game.coins += 100; showMessage("💰 Продан 1 алмаз! +100 🪙"); updateUI();
-}
-
-function rest() {
-    if (game.coins < 100) { showMessage("❌ Нужно 100 монет!"); return; }
-    if (game.energy >= game.maxEnergy) { showMessage("⚡ Энергия уже полностью восстановлена!"); return; }
-    game.coins -= 100;
-    game.energy = Math.min(game.maxEnergy, game.energy + 100);
-    showMessage("🛌 Энергия восстановлена!");
-    updateUI();
-}
-
-document.getElementById("mineBtn").addEventListener("click", mine);
-document.getElementById("buyPickBtn").addEventListener("click", buyPickaxe);
-document.getElementById("sellStoneBtn").addEventListener("click", sellStone);
-document.getElementById("sellIronBtn").addEventListener("click", sellIron);
-document.getElementById("sellGoldBtn").addEventListener("click", sellGold);
-document.getElementById("sellDiamondBtn").addEventListener("click", sellDiamond);
-document.getElementById("restBtn").addEventListener("click", rest);
-document.getElementById("bagBtn").addEventListener("click", buyBag);
-
+// РђРІС‚РѕСЂРµРіРµРЅРµСЂР°С†РёСЏ СЌРЅРµСЂРіРёРё (1 вљЎ РєР°Р¶РґС‹Рµ 4 СЃРµРє)
 setInterval(() => {
     if (game.energy < game.maxEnergy) {
-        game.energy = Math.min(game.maxEnergy, game.energy + 1);
+        game.energy++;
         updateUI();
+        saveGame();
     }
-}, 5000);
+}, 4000);
 
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
+renderMineMap();
+renderQuests();
 updateUI();
 </script>
 </body>
 </html>
-
-
-
-   
