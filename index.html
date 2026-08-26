@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>в›ЏпёЏ РЁР°С…С‚С‘СЂ 3.0</title>
+<title>РЁР°С…С‚РµСЂ 3.0</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
@@ -89,6 +89,7 @@ h2 {
     font-size: 18px;
     margin: 22px 0;
 }
+
 button {
     width: 100%;
     border: none;
@@ -195,6 +196,7 @@ button small {
     grid-template-columns: 1fr 1fr;
     gap: 6px;
 }
+
 .inventory-item {
     display: flex;
     justify-content: space-between;
@@ -282,20 +284,20 @@ button small {
 
 <div class="game-container">
 
-<h1>в›ЏпёЏ РЁР°С…С‚С‘СЂ 3.0</h1>
+<h1>РЁР°С…С‚РµСЂ 3.0</h1>
 
 <!-- РЈР РћР’Р•РќР¬ -->
 <div class="stat-row">
-    <span>в­ђ РЈСЂРѕРІРµРЅСЊ:</span>
+    <span>РЈСЂРѕРІРµРЅСЊ:</span>
     <span id="level">1</span>
-</div</div>
+</div>
 
 <div class="progress">
     <div id="xpFill" class="progress-fill xp-fill"></div>
 </div>
 
 <div class="stat-row">
-    <span>вњЁ РћРїС‹С‚:</span>
+    <span>РћРїС‹С‚:</span>
     <span>
         <span id="xp">0</span> / <span id="xpToLevel">50</span>
     </span>
@@ -307,7 +309,7 @@ button small {
 </div>
 
 <div class="stat-row">
-    <span>вљЎ Р­РЅРµСЂРіРёСЏ:</span>
+    <span>Р­РЅРµСЂРіРёСЏ:</span>
     <span>
         <span id="energy">100</span> / <span id="maxEnergy">100</span>
     </span>
@@ -315,15 +317,15 @@ button small {
 
 <!-- РўР•РљРЈР©РђРЇ РЁРђРҐРўРђ -->
 <div class="section">
-    <h2>рџ“Ќ РўРµРєСѓС‰Р°СЏ С€Р°С…С‚Р°</h2>
+    <h2>РўРµРєСѓС‰Р°СЏ С€Р°С…С‚Р°</h2>
     <div class="pickaxe-box">
-        <div id="currentMineIcon" class="pickaxe-icon">рџЄЁ</div>
+        <div id="currentMineIcon" class="pickaxe-icon">в›ЏпёЏ</div>
         <div id="currentMineName" class="pickaxe-name">РљР°РјРµРЅРЅР°СЏ С€Р°С…С‚Р°</div>
-        <div id="currentMineDescription">Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ РїСѓС‚СЊ С€Р°С…С‚С‘СЂР°.</div>
+        <div id="currentMineDescription">Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ РїСѓС‚СЊ С€Р°С…С‚РµСЂР°.</div>
     </div>
 
     <div class="stat-row">
-        <span>в¬‡пёЏ Р“Р»СѓР±РёРЅР°:</span>
+        <span>Р“Р»СѓР±РёРЅР°:</span>
         <span><span id="depth">1</span> Рј</span>
     </div>
 
@@ -336,94 +338,94 @@ button small {
 <p id="hintText" class="hint">РќР°Р¶РјРё В«РљРћРџРђРўР¬В», С‡С‚РѕР±С‹ РЅР°С‡Р°С‚СЊ!</p>
 
 <button id="mineBtn" class="mine-button">
-    в›ЏпёЏ РљРћРџРђРўР¬!
+    РљРћРџРђРўР¬!
 </button>
 
 <!-- Р Р•РЎРЈР РЎР« -->
 <div class="section">
-    <h2>рџЋ’ Р РµСЃСѓСЂСЃС‹</h2>
+    <h2>Р РµСЃСѓСЂСЃС‹</h2>
     <div class="inventory-grid">
-        <div class="inventory-item"><span>рџЄЁ РљР°РјРµРЅСЊ</span><span id="stone">0</span></div>
-        <div class="inventory-item"><span>в›“пёЏ Р–РµР»РµР·Рѕ</span><span id="iron">0</span></div>
-        <div class="inventory-item"><span>рџҐ‡ Р—РѕР»РѕС‚Рѕ</span><span id="gold">0</span></div>
-        <div class="inventory-item"><span>рџ’Ћ РђР»РјР°Р·</span><span id="diamond">0</span></div>
-        <div class="inventory-item"><span>рџ”ґ Р СѓР±РёРЅ</span><span id="ruby">0</span></div>
-        <div class="inventory-item"><span>рџџЈ РђРјРµС‚РёСЃС‚</span><span id="amethyst">0</span></div>
+        <div class="inventory-item"><span>РљР°РјРµРЅСЊ</span><span id="stone">0</span></div>
+        <div class="inventory-item"><span>Р–РµР»РµР·Рѕ</span><span id="iron">0</span></div>
+        <div class="inventory-item"><span>Р—РѕР»РѕС‚Рѕ</span><span id="gold">0</span></div>
+        <div class="inventory-item"><span>РђР»РјР°Р·</span><span id="diamond">0</span></div>
+        <div class="inventory-item"><span>Р СѓР±РёРЅ</span><span id="ruby">0</span></div>
+        <div class="inventory-item"><span>РђРјРµС‚РёСЃС‚</span><span id="amethyst">0</span></div>
     </div>
 
     <div class="stat-row" style="margin-top: 10px;">
-        <span>рџЄ™ РњРѕРЅРµС‚С‹:</span>
+        <span>РњРѕРЅРµС‚С‹:</span>
         <span id="coins" style="font-weight: bold; color: #f1c40f;">0</span>
     </div>
 </div>
 
 <!-- РљРђР РўРђ РЁРђРҐРў -->
 <div class="section">
-    <h2>рџ—єпёЏ РљР°СЂС‚Р° С€Р°С…С‚</h2>
+    <h2>РљР°СЂС‚Р° С€Р°С…С‚</h2>
     <div id="mineMap" class="map-grid"></div>
 </div>
 
 <!-- РљРР РљРђ -->
 <div class="section">
-    <h2>в›ЏпёЏ РљРёСЂРєР°</h2>
+    <h2>РљРёСЂРєР°</h2>
     <div class="pickaxe-box">
-        <div id="pickaxeIcon" class="pickaxe-icon">рџЄµ</div>
+        <div id="pickaxeIcon" class="pickaxe-icon">в›ЏпёЏ</div>
         <div id="pickaxeName" class="pickaxe-name">Р”РµСЂРµРІСЏРЅРЅР°СЏ РєРёСЂРєР°</div>
         <div>РЎРёР»Р°: <b id="pickaxePower">1</b></div>
     </div>
 
     <button id="buyPickBtn" class="blue-button">
-        в›ЏпёЏ РЈР»СѓС‡С€РёС‚СЊ РєРёСЂРєСѓ
-        <small id="pickaxeCost">75 рџЄ™</small>
+        РЈР»СѓС‡С€РёС‚СЊ РєРёСЂРєСѓ
+        <small id="pickaxeCost">75 РјРѕРЅРµС‚</small>
     </button>
 </div>
 
 <!-- Р Р®РљР—РђРљ -->
 <div class="section">
-    <h2>рџЋ’ Р СЋРєР·Р°Рє</h2>
+    <h2>Р СЋРєР·Р°Рє</h2>
     <div class="stat-row">
         <span>РњРµСЃС‚:</span>
         <span><span id="usedSlots">0</span> / <span id="bagSize">30</span></span>
     </div>
 
     <button id="bagBtn" class="green-button">
-        рџЋ’ РЈР»СѓС‡С€РёС‚СЊ СЂСЋРєР·Р°Рє
-        <small id="bagCost">150 рџЄ™</small>
+        РЈР»СѓС‡С€РёС‚СЊ СЂСЋРєР·Р°Рє
+        <small id="bagCost">150 РјРѕРЅРµС‚</small>
     </button>
 </div>
 
 <!-- Р—РђР”РђРќРРЇ -->
 <div class="section">
-    <h2>рџ“‹ Р—Р°РґР°РЅРёСЏ</h2>
+    <h2>Р—Р°РґР°РЅРёСЏ</h2>
     <div id="quests"></div>
 </div>
 
 <!-- Р Р«РќРћРљ -->
 <div class="section">
-    <h2>рџЏЄ Р С‹РЅРѕРє</h2>
+    <h2>Р С‹РЅРѕРє</h2>
     <button id="sellStoneBtn" class="gray-button">
-        рџЄЁ РџСЂРѕРґР°С‚СЊ 10 РєР°РјРЅСЏ <small>+5 рџЄ™</small>
+        РџСЂРѕРґР°С‚СЊ 10 РєР°РјРЅСЏ <small>+5 РјРѕРЅРµС‚</small>
     </button>
     <button id="sellIronBtn" class="gray-button">
-        в›“пёЏ РџСЂРѕРґР°С‚СЊ 10 Р¶РµР»РµР·Р° <small>+30 рџЄ™</small>
+        РџСЂРѕРґР°С‚СЊ 10 Р¶РµР»РµР·Р° <small>+30 РјРѕРЅРµС‚</small>
     </button>
     <button id="sellGoldBtn" class="gray-button">
-        рџҐ‡ РџСЂРѕРґР°С‚СЊ 5 Р·РѕР»РѕС‚Р° <small>+50 рџЄ™</small>
+        РџСЂРѕРґР°С‚СЊ 5 Р·РѕР»РѕС‚Р° <small>+50 РјРѕРЅРµС‚</small>
     </button>
     <button id="sellDiamondBtn" class="gray-button">
-        рџ’Ћ РџСЂРѕРґР°С‚СЊ 1 Р°Р»РјР°Р· <small>+100 рџЄ™</small>
+        РџСЂРѕРґР°С‚СЊ 1 Р°Р»РјР°Р· <small>+100 РјРѕРЅРµС‚</small>
     </button>
 </div>
 
 <!-- РћРўР”Р«РҐ -->
 <div class="section">
     <button id="restBtn" class="dark-button">
-        рџ›Њ РћС‚РґРѕС…РЅСѓС‚СЊ <small>+100 вљЎ Р·Р° 100 рџЄ™</small>
+        РћС‚РґРѕС…РЅСѓС‚СЊ <small>+100 СЌРЅРµСЂРіРёРё Р·Р° 100 РјРѕРЅРµС‚</small>
     </button>
 </div>
- 
+
 <div class="footer">
-    в›ЏпёЏ РЁР°С…С‚С‘СЂ 3.0
+    РЁР°С…С‚РµСЂ 3.0
 </div>
 
 </div>
@@ -445,17 +447,17 @@ if (tg) {
 }
 
 const mines = [
-    { id: "stone", name: "РљР°РјРµРЅРЅР°СЏ С€Р°С…С‚Р°", icon: "рџЄЁ", description: "Р‘РµР·РѕРїР°СЃРЅР°СЏ С€Р°С…С‚Р° РґР»СЏ РЅР°С‡РёРЅР°СЋС‰РёС….", requiredLevel: 1, maxDepth: 100, rewards: "рџЄЁ РљР°РјРµРЅСЊ вЂў в›“пёЏ Р–РµР»РµР·Рѕ" },
-    { id: "gold", name: "Р—РѕР»РѕС‚Р°СЏ С€Р°С…С‚Р°", icon: "рџҐ‡", description: "Р—РґРµСЃСЊ РјРѕР¶РЅРѕ РЅР°Р№С‚Рё РЅР°СЃС‚РѕСЏС‰РёРµ Р±РѕРіР°С‚СЃС‚РІР°.", requiredLevel: 5, maxDepth: 250, rewards: "в›“пёЏ Р–РµР»РµР·Рѕ вЂў рџҐ‡ Р—РѕР»РѕС‚Рѕ" },
-    { id: "diamond", name: "РђР»РјР°Р·РЅР°СЏ С€Р°С…С‚Р°", icon: "рџ’Ћ", description: "Р“Р»СѓР±РѕРєРёРµ РїРµС‰РµСЂС‹ СЃ Р°Р»РјР°Р·Р°РјРё.", requiredLevel: 12, maxDepth: 500, rewards: "рџҐ‡ Р—РѕР»РѕС‚Рѕ вЂў рџ’Ћ РђР»РјР°Р·" },
-    { id: "ruby", name: "РљСЂРёСЃС‚Р°Р»СЊРЅР°СЏ С€Р°С…С‚Р°", icon: "рџ”ґ", description: "Р РµРґРєРёРµ РєСЂРёСЃС‚Р°Р»Р»С‹ РЅР°С…РѕРґСЏС‚СЃСЏ Р·РґРµСЃСЊ.", requiredLevel: 25, maxDepth: 1000, rewards: "рџ’Ћ РђР»РјР°Р· вЂў рџ”ґ Р СѓР±РёРЅ" },
-    { id: "hell", name: "Р›Р°РІРѕРІР°СЏ С€Р°С…С‚Р°", icon: "рџЊ‹", description: "РћРїР°СЃРЅРѕРµ Рё РѕС‡РµРЅСЊ Р¶Р°СЂРєРѕРµ РјРµСЃС‚Рѕ.", requiredLevel: 40, maxDepth: 2000, rewards: "рџ”ґ Р СѓР±РёРЅ вЂў рџџЈ РђРјРµС‚РёСЃС‚" },
-    { id: "space", name: "РљРѕСЃРјРёС‡РµСЃРєР°СЏ С€Р°С…С‚Р°", icon: "рџЊЊ", description: "Р РµСЃСѓСЂСЃС‹ СЃС‚РѕСЏС‚ С†РµР»РѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ.", requiredLevel: 75, maxDepth: 5000, rewards: "рџ’Ћ РђР»РјР°Р· вЂў рџ”ґ Р СѓР±РёРЅ вЂў рџџЈ РђРјРµС‚РёСЃС‚" }
+    { id: "stone", name: "РљР°РјРµРЅРЅР°СЏ С€Р°С…С‚Р°", icon: "в›ЏпёЏ", description: "Р‘РµР·РѕРїР°СЃРЅР°СЏ С€Р°С…С‚Р° РґР»СЏ РЅР°С‡РёРЅР°СЋС‰РёС….", requiredLevel: 1, maxDepth: 100, rewards: "РљР°РјРµРЅСЊ вЂў Р–РµР»РµР·Рѕ" },
+    { id: "gold", name: "Р—РѕР»РѕС‚Р°СЏ С€Р°С…С‚Р°", icon: "рџҐ‡", description: "Р—РґРµСЃСЊ РјРѕР¶РЅРѕ РЅР°Р№С‚Рё РЅР°СЃС‚РѕСЏС‰РёРµ Р±РѕРіР°С‚СЃС‚РІР°.", requiredLevel: 5, maxDepth: 250, rewards: "Р–РµР»РµР·Рѕ вЂў Р—РѕР»РѕС‚Рѕ" },
+    { id: "diamond", name: "РђР»РјР°Р·РЅР°СЏ С€Р°С…С‚Р°", icon: "рџ’Ћ", description: "Р“Р»СѓР±РѕРєРёРµ РїРµС‰РµСЂС‹ СЃ Р°Р»РјР°Р·Р°РјРё.", requiredLevel: 12, maxDepth: 500, rewards: "Р—РѕР»РѕС‚Рѕ вЂў РђР»РјР°Р·" },
+    { id: "ruby", name: "РљСЂРёСЃС‚Р°Р»СЊРЅР°СЏ С€Р°С…С‚Р°", icon: "рџ”ґ", description: "Р РµРґРєРёРµ РєСЂРёСЃС‚Р°Р»Р»С‹ РЅР°С…РѕРґСЏС‚СЃСЏ Р·РґРµСЃСЊ.", requiredLevel: 25, maxDepth: 1000, rewards: "РђР»РјР°Р· вЂў Р СѓР±РёРЅ" },
+    { id: "hell", name: "Р›Р°РІРѕРІР°СЏ С€Р°С…С‚Р°", icon: "рџЊ‹", description: "РћРїР°СЃРЅРѕРµ Рё РѕС‡РµРЅСЊ Р¶Р°СЂРєРѕРµ РјРµСЃС‚Рѕ.", requiredLevel: 40, maxDepth: 2000, rewards: "Р СѓР±РёРЅ вЂў РђРјРµС‚РёСЃС‚" },
+    { id: "space", name: "РљРѕСЃРјРёС‡РµСЃРєР°СЏ С€Р°С…С‚Р°", icon: "рџЊЊ", description: "Р РµСЃСѓСЂСЃС‹ СЃС‚РѕСЏС‚ С†РµР»РѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ.", requiredLevel: 75, maxDepth: 5000, rewards: "РђР»РјР°Р· вЂў Р СѓР±РёРЅ вЂў РђРјРµС‚РёСЃС‚" }
 ];
 
 const pickaxes = [
-    { name: "Р”РµСЂРµРІСЏРЅРЅР°СЏ", icon: "рџЄµ", power: 1, cost: 0 },
-    { name: "РљР°РјРµРЅРЅР°СЏ", icon: "рџЄЁ", power: 2, cost: 75 },
+    { name: "Р”РµСЂРµРІСЏРЅРЅР°СЏ", icon: "в›ЏпёЏ", power: 1, cost: 0 },
+    { name: "РљР°РјРµРЅРЅР°СЏ", icon: "в›ЏпёЏ", power: 2, cost: 75 },
     { name: "Р–РµР»РµР·РЅР°СЏ", icon: "в›“пёЏ", power: 4, cost: 300 },
     { name: "Р—РѕР»РѕС‚Р°СЏ", icon: "рџҐ‡", power: 8, cost: 900 },
     { name: "РђР»РјР°Р·РЅР°СЏ", icon: "рџ’Ћ", power: 16, cost: 2500 },
@@ -465,10 +467,10 @@ const pickaxes = [
 ];
 
 const questTemplates = [
-    { id: "mine50", title: "в›ЏпёЏ РќР°С‡Р°Р»Рѕ РїСѓС‚Рё", target: 50, rewardCoins: 100, rewardXP: 50, type: "mine" },
-    { id: "stone100", title: "рџЄЁ РљР°РјРµРЅС‰РёРє", target: 100, rewardCoins: 150, rewardXP: 70, type: "stone" },
-    { id: "iron20", title: "в›“пёЏ Р–РµР»РµР·РЅР°СЏ Р¶РёР»Р°", target: 20, rewardCoins: 250, rewardXP: 100, type: "iron" },
-    { id: "gold10", title: "рџҐ‡ Р—РѕР»РѕС‚Р°СЏ Р¶РёР»Р°", target: 10, rewardCoins: 500, rewardXP: 150, type: "gold" }
+    { id: "mine50", title: "РќР°С‡Р°Р»Рѕ РїСѓС‚Рё", target: 50, rewardCoins: 100, rewardXP: 50, type: "mine" },
+    { id: "stone100", title: "РљР°РјРµРЅС‰РёРє", target: 100, rewardCoins: 150, rewardXP: 70, type: "stone" },
+    { id: "iron20", title: "Р–РµР»РµР·РЅР°СЏ Р¶РёР»Р°", target: 20, rewardCoins: 250, rewardXP: 100, type: "iron" },
+    { id: "gold10", title: "Р—РѕР»РѕС‚Р°СЏ Р¶РёР»Р°", target: 10, rewardCoins: 500, rewardXP: 150, type: "gold" }
 ];
 
 const defaultGame = {
@@ -517,9 +519,6 @@ function showMessage(text) {
 function getCurrentMine() {
     return mines.find(m => m.id === game.currentMine) || mines[0];
 }
-function getCurrentMine() {
-    return mines.find(m => m.id === game.currentMine) || mines[0];
-}
 
 function getUsedSlots() {
     return game.stone + game.iron + game.gold + game.diamond + game.ruby + game.amethyst;
@@ -539,7 +538,7 @@ function addXP(amount) {
     }
 
     if (levelUps > 0) {
-        showMessage(`рџЋ‰ РќРѕРІС‹Р№ СѓСЂРѕРІРµРЅСЊ: ${game.level}! +10 вљЎ`);
+        showMessage(`РќРѕРІС‹Р№ СѓСЂРѕРІРµРЅСЊ: ${game.level}! +10 СЌРЅРµСЂРіРёРё`);
     }
 }
 
@@ -553,7 +552,7 @@ function updateQuestsProgress(type, value = 1) {
                 quest.completed = true;
                 game.coins += template.rewardCoins;
                 addXP(template.rewardXP);
-                showMessage(`вњ… РљРІРµСЃС‚ "${template.title}" РІС‹РїРѕР»РЅРµРЅ! +${template.rewardCoins} рџЄ™`);
+                showMessage(`РљРІРµСЃС‚ "${template.title}" РІС‹РїРѕР»РЅРµРЅ! +${template.rewardCoins} РјРѕРЅРµС‚`);
             }
         }
     });
@@ -573,7 +572,7 @@ function renderQuests() {
         questDiv.innerHTML = `
             <div class="quest-title">${template.title}</div>
             <div class="quest-progress">РџСЂРѕРіСЂРµСЃСЃ: ${Math.min(quest.progress, template.target)}/${template.target}</div>
-            <div class="quest-reward">РќР°РіСЂР°РґР°: ${template.rewardCoins} рџЄ™, ${template.rewardXP} вњЁ</div>
+            <div class="quest-reward">РќР°РіСЂР°РґР°: ${template.rewardCoins} РјРѕРЅРµС‚, ${template.rewardXP} РѕРїС‹С‚Р°</div>
         `;
         questsArea.appendChild(questDiv);
     });
@@ -607,13 +606,13 @@ function selectMine(mineId) {
     if (!target) return;
 
     if (game.level < target.requiredLevel) {
-        showMessage(`рџ”’ РўСЂРµР±СѓРµС‚СЃСЏ ${target.requiredLevel} СѓСЂРѕРІРµРЅСЊ!`);
+        showMessage(`РўСЂРµР±СѓРµС‚СЃСЏ ${target.requiredLevel} СѓСЂРѕРІРµРЅСЊ!`);
         return;
-    }}
+    }
 
     game.currentMine = mineId;
     game.depth = 1;
-    showMessage(`рџ“Ќ Р’С‹ РїРµСЂРµС€Р»Рё РІ: ${target.name}`);
+    showMessage(`Р’С‹ РїРµСЂРµС€Р»Рё РІ: ${target.name}`);
     renderMineMap();
     updateUI();
     saveGame();
@@ -621,12 +620,12 @@ function selectMine(mineId) {
 
 function mine() {
     if (game.energy < 1) {
-        showMessage("вљЎ РќРµ С…РІР°С‚Р°РµС‚ СЌРЅРµСЂРіРёРё! РћС‚РґРѕС…РЅРёС‚Рµ.");
+        showMessage("РќРµ С…РІР°С‚Р°РµС‚ СЌРЅРµСЂРіРёРё! РћС‚РґРѕС…РЅРёС‚Рµ.");
         return;
     }
 
     if (getUsedSlots() >= game.bagSize) {
-        showMessage("рџЋ’ Р СЋРєР·Р°Рє РїРѕР»РѕРЅ! РџСЂРѕРґР°Р№С‚Рµ СЂРµСЃСѓСЂСЃС‹.");
+        showMessage("Р СЋРєР·Р°Рє РїРѕР»РѕРЅ! РџСЂРѕРґР°Р№С‚Рµ СЂРµСЃСѓСЂСЃС‹.");
         return;
     }
 
@@ -638,16 +637,12 @@ function mine() {
     const pIndex = Math.min(game.pickaxeLevel - 1, pickaxes.length - 1);
     const power = pickaxes[pIndex].power;
 
-    let dropsText = [];
-    
     if (curMine.id === "stone") {
         let amt = Math.floor(1 * power);
         game.stone += amt;
-        dropsText.push(`+${amt} рџЄЁ`);
         if (Math.random() < 0.3) {
             let iAmt = Math.max(1, Math.floor(power / 2));
             game.iron += iAmt;
-            dropsText.push(`+${iAmt} в›“пёЏ`);
             updateQuestsProgress("iron", iAmt);
         }
         updateQuestsProgress("stone", amt);
@@ -656,32 +651,27 @@ function mine() {
         game.iron += iAmt;
         let gAmt = Math.floor(1 * power);
         game.gold += gAmt;
-        dropsText.push(`+${iAmt} в›“пёЏ +${gAmt} рџҐ‡`);
         updateQuestsProgress("gold", gAmt);
     } else if (curMine.id === "diamond") {
         let gAmt = Math.floor(1 * power);
         game.gold += gAmt;
         let dAmt = Math.max(1, Math.floor(power / 2));
         game.diamond += dAmt;
-        dropsText.push(`+${gAmt} рџҐ‡ +${dAmt} рџ’Ћ`);
     } else if (curMine.id === "ruby") {
         let dAmt = Math.floor(1 * power);
         game.diamond += dAmt;
         let rAmt = Math.max(1, Math.floor(power / 2));
         game.ruby += rAmt;
-        dropsText.push(`+${dAmt} рџ’Ћ +${rAmt} рџ”ґ`);
     } else if (curMine.id === "hell") {
         let rAmt = Math.floor(1 * power);
         game.ruby += rAmt;
         let aAmt = Math.max(1, Math.floor(power / 2));
         game.amethyst += aAmt;
-        dropsText.push(`+${rAmt} рџ”ґ +${aAmt} рџџЈ`);
     } else if (curMine.id === "space") {
         let dAmt = Math.floor(1 * power);
         let rAmt = Math.floor(1 * power);
         let aAmt = Math.floor(1 * power);
         game.diamond += dAmt; game.ruby += rAmt; game.amethyst += aAmt;
-        dropsText.push(`+${dAmt} рџ’Ћ +${rAmt} рџ”ґ +${aAmt} рџџЈ`);
     }
 
     addXP(2);
@@ -695,132 +685,4 @@ function mine() {
     saveGame();
 }
 
-function upgradePickaxe() {
-    if (game.pickaxeLevel >= pickaxes.length) {
-        showMessage("рџ‘‘ РЈ РІР°СЃ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РєРёСЂРєР°!");
-        return;
-    }
-
-    const nextP = pickaxes[game.pickaxeLevel];
-    if (game.coins >= nextP.cost) {
-        game.coins -= nextP.cost;
-        game.pickaxeLevel += 1;
-        game.power = nextP.power;
-        showMessage(`рџЋ‰ РљСѓРїР»РµРЅР° ${nextP.name} РєРёСЂРєР°!`);
-        updateUI();
-        saveGame();
-    } else {
-        showMessage(`вќЊ РќСѓР¶РЅРѕ ${nextP.cost} рџЄ™!`);
-    }
-}
-
-function upgradeBag() {
-    if (game.coins >= game.bagCost) {
-        game.coins -= game.bagCost;
-        game.bagSize += 20;
-        game.bagCost = Math.floor(game.bagCost * 2.2);
-        showMessage(`рџЋ’ Р’РјРµСЃС‚РёРјРѕСЃС‚СЊ СЂСЋРєР·Р°РєР°: ${game.bagSize}`);
-        updateUI();
-        saveGame();
-    } else {
-        showMessage(`вќЊ РќСѓР¶РЅРѕ ${game.bagCost} рџЄ™!`);
-    }
-}
-
-function sellResource(type, count, reward) {
-    if (game[type] >= count) {
-        game[type] -= count;
-        game.coins += reward;
-        showMessage(`рџ’° +${reward} рџЄ™`);
-        updateUI();
-        saveGame();
-    } else {
-        showMessage("вќЊ РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЂРµСЃСѓСЂСЃРѕРІ!");
-    }
-}
-
-function rest() {
-    if (game.coins < 100) {
-        showMessage("вќЊ РќСѓР¶РЅРѕ 100 рџЄ™!");
-        return;
-    }
-    if (game.energy >= game.maxEnergy) {
-        showMessage("вљЎ Р­РЅРµСЂРіРёСЏ СѓР¶Рµ РїРѕР»РЅР°СЏ!");
-        return;
-    }
-
-    game.coins -= 100;
-    game.energy = Math.min(game.maxEnergy, game.energy + 100);
-    showMessage("рџ›Њ Р’С‹ РѕС‚РґРѕС…РЅСѓР»Рё! +100 вљЎ");
-    updateUI();
-    saveGame();
-}
-
-function updateUI() {
-    document.getElementById("level").textContent = game.level;
-    document.getElementById("xp").textContent = game.xp;
-    document.getElementById("xpToLevel").textContent = game.xpToLevel;
-    document.getElementById("xpFill").style.width = Math.min(100, (game.xp / game.xpToLevel) * 100) + "%";
-
-    document.getElementById("energy").textContent = game.energy;
-    document.getElementById("maxEnergy").textContent = game.maxEnergy;
-    document.getElementById("energyFill").style.width = Math.min(100, (game.energy / game.maxEnergy) * 100) + "%";
-
-    const curMine = getCurrentMine();
-    document.getElementById("currentMineIcon").textContent = curMine.icon;
-    document.getElementById("currentMineName").textContent = curMine.name;
-    document.getElementById("currentMineDescription").textContent = curMine.description;
-    document.getElementById("depth").textContent = game.depth;
-    document.getElementById("depthFill").style.width = Math.min(100, (game.depth / curMine.maxDepth) * 100) + "%";
-
-    document.getElementById("stone").textContent = game.stone;
-    document.getElementById("iron").textContent = game.iron;
-    document.getElementById("gold").textContent = game.gold;
-    document.getElementById("diamond").textContent = game.diamond;
-    document.getElementById("ruby").textContent = game.ruby;
-    document.getElementById("amethyst").textContent = game.amethyst;
-    document.getElementById("coins").textContent = game.coins;
-
-    const pIndex = Math.min(game.pickaxeLevel - 1, pickaxes.length - 1);
-    const pData = pickaxes[pIndex];
-    document.getElementById("pickaxeIcon").textContent = pData.icon;
-    document.getElementById("pickaxeName").textContent = pData.name + " РєРёСЂРєР°";
-    document.getElementById("pickaxePower").textContent = pData.power;
-
-    const nextP = pickaxes[game.pickaxeLevel];
-    if (nextP) {
-        document.getElementById("pickaxeCost").textContent = `${nextP.cost} рџЄ™`;
-    } else {
-        document.getElementById("pickaxeCost").textContent = "РњРђРљРЎРРњРЈРњ";
-    }
-    document.getElementById("usedSlots").textContent = getUsedSlots();
-    document.getElementById("bagSize").textContent = game.bagSize;
-    document.getElementById("bagCost").textContent = `${game.bagCost} рџЄ™`;
-}
-
-// РџСЂРёРІСЏР·РєР° РєРЅРѕРїРѕРє
-document.getElementById("mineBtn").onclick = mine;
-document.getElementById("buyPickBtn").onclick = upgradePickaxe;
-document.getElementById("bagBtn").onclick = upgradeBag;
-document.getElementById("sellStoneBtn").onclick = () => sellResource("stone", 10, 5);
-document.getElementById("sellIronBtn").onclick = () => sellResource("iron", 10, 30);
-document.getElementById("sellGoldBtn").onclick = () => sellResource("gold", 5, 50);
-document.getElementById("sellDiamondBtn").onclick = () => sellResource("diamond", 1, 100);
-document.getElementById("restBtn").onclick = rest;
-
-// РђРІС‚РѕСЂРµРіРµРЅРµСЂР°С†РёСЏ СЌРЅРµСЂРіРёРё (1 вљЎ РєР°Р¶РґС‹Рµ 4 СЃРµРє)
-setInterval(() => {
-    if (game.energy < game.maxEnergy) {
-        game.energy++;
-        updateUI();
-        saveGame();
-    }
-}, 4000);
-
-// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
-renderMineMap();
-renderQuests();
-updateUI();
-</script>
-</body>
-</html>
+function upgradePicka
