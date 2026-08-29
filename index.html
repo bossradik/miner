@@ -1001,6 +1001,56 @@ setInterval(
 /*
    Запуск игры.
 */
+    <!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>⛏️ Шахтёр 6.0</title><style>*{box-sizing:border-box}body{margin:0;padding:12px;background:#101820;color:#fff;font:16px Arial}.game{max-width:430px;margin:auto;background:#1c2932;border-radius:20px;padding:16px}.stats,.inv{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.inv{grid-template-columns:1fr 1fr}.box,.section{background:#263842;border-radius:14px;padding:12px;margin-top:10px}.stat{text-align:center;background:#344854;padding:10px;border-radius:10px}.stat b{display:block;font-size:19px;margin-top:4px}.mine{text-align:center}.pick{font-size:70px}.minebtn{width:100%;padding:20px;border:0;border-radius:15px;background:#e69a22;color:#fff;font-size:23px;font-weight:bold;touch-action:manipulation}.minebtn:active{transform:scale(.97)}.energy,.bag{height:11px;background:#101820;border-radius:10px;overflow:hidden;margin-top:8px}.fill{height:100%;background:#39d98a}.item{background:#18242c;padding:10px;border-radius:9px;display:flex;justify-content:space-between}.market,.upgrade{width:100%;margin-top:7px;padding:12px;border:0;border-radius:10px;background:#425966;color:#fff;font-size:15px}.msg{text-align:center;color:#ffd166;min-height:24px;margin:9px}</style></head><body><div class="game"><h1>⛏️ Шахтёр 6.0</h1><div class="stats"><div class="stat">💰<b id="coins">0</b></div><div class="stat">⭐<b id="level">1</b></div><div class="stat">✨<b id="xp">0</b></div></div><div class="box mine"><div class="pick">⛏️</div><div>Глубина: <b id="depth">0</b> м</div><button class="minebtn" id="mine">⛏️ КОПАТЬ</button><div class="energy"><div class="fill" id="energyFill"></div></div><div>⚡ <b id="energy">100</b>/100</div><div class="msg" id="msg">Нажми «КОПАТЬ»!</div></div><div class="section"><h3>🎒 Рюкзак <span id="bagText">0/30</span></h3><div class="bag"><div class="fill" id="bagFill"></div></div><div class="inv"><div class="item">🪨 <span id="stone">0</span></div><div class="item">⛓️ <span id="iron">0</span></div><div class="item">🥇 <span id="gold">0</span></div><div class="item">💎 <span id="diamond">0</span></div><div class="item">🔴 <span id="ruby">0</span></div><div class="item">🟣 <span id="amethyst">0</span></div></div><button class="upgrade" id="bagUp">🎒 Увеличить рюкзак — 100 🪙</button></div><div class="section"><h3>⛏️ Кирка</h3>Уровень: <b id="pickLevel">1</b> · Сила: <b id="power">1</b><button class="upgrade" id="pickUp">⚒️ Улучшить — 150 🪙</button></div><div class="section">
+<h3>🎁 Ежедневный бонус</h3>
+<div id="dailyInfo" style="background:#18242c;padding:12px;border-radius:10px;text-align:center;margin-bottom:8px;">
+<div id="dailyDay">День 1 из 7</div>
+<div id="dailyReward" style="margin-top:6px;color:#ffd166;font-weight:bold;">💰 100 🪙</div>
+</div>
+<button class="upgrade" id="dailyButton" type="button" style="background:#d88920;font-weight:bold;">🎁 ЗАБРАТЬ БОНУС</button>
+</div>
+<div class="section"><h3>💰 Рынок</h3><button class="market" data-r="stone">🪨 Камень — 1 🪙</button><button class="market" data-r="iron">⛓️ Железо — 8 🪙</button><button class="market" data-r="gold">🥇 Золото — 35 🪙</button><button class="market" data-r="diamond">💎 Алмаз — 250 🪙</button><button class="market" data-r="ruby">🔴 Рубин — 600 🪙</button><button class="market" data-r="amethyst">🟣 Аметист — 1000 🪙</button></div></div><script>const K="miner6";let s={coins:0,level:1,xp:0,depth:0,energy:100,maxEnergy:100,bagSize:30,stone:0,iron:0,gold:0,diamond:0,ruby:0,amethyst:0,pickLevel:1,power:1,dailyDay:1,dailyLast:0};const price={stone:1,iron:8,gold:35,diamond:250,ruby:600,amethyst:1000};const $=id=>document.getElementById(id);function total(){return s.stone+s.iron+s.gold+s.diamond+s.ruby+s.amethyst}function save(){localStorage.setItem(K,JSON.stringify(s))}function load(){try{let x=JSON.parse(localStorage.getItem(K));if(x)Object.assign(s,x)}catch(e){}}function xp(n){s.xp+=n;let need=s.level*100;if(s.xp>=need){s.xp-=need;s.level++;s.maxEnergy+=5;s.energy=s.maxEnergy;msg("🎉 Уровень "+s.level+"!")}}function msg(t){$("msg").textContent=t}function render(){let u=total();$("coins").textContent=s.coins;$("level").textContent=s.level;$("xp").textContent=s.xp;$("depth").textContent=s.depth;$("energy").textContent=s.energy;$("stone").textContent=s.stone;$("iron").textContent=s.iron;$("gold").textContent=s.gold;$("diamond").textContent=s.diamond;$("ruby").textContent=s.ruby;$("amethyst").textContent=s.amethyst;$("bagText").textContent=u+"/"+s.bagSize;$("pickLevel").textContent=s.pickLevel;$("power").textContent=s.power;$("energyFill").style.width=s.energy/s.maxEnergy*100+"%";$("bagFill").style.width=Math.min(100,u/s.bagSize*100)+"%";$("mine").disabled=s.energy<=0||u>=s.bagSize}function mine(){if(s.energy<=0)return msg("⚡ Нет энергии!");if(total()>=s.bagSize)return msg("🎒 Рюкзак заполнен!");s.energy--;s.depth+=s.power;s.stone++;xp(2);let r=Math.random();if(r<.01&&total()<s.bagSize){s.diamond++;xp(30);msg("💎 АЛМАЗ!")}else if(r<.03&&total()<s.bagSize){s.ruby++;xp(20);msg("🔴 Рубин!")}else if(r<.06&&total()<s.bagSize){s.amethyst++;xp(15);msg("🟣 Аметист!")}else if(r<.16&&total()<s.bagSize){s.gold++;xp(10);msg("🥇 Золото!")}else if(r<.35&&total()<s.bagSize){s.iron++;xp(5);msg("⛓️ Железо!")}else msg("🪨 Камень добыт!");save();render()}$("mine").addEventListener("click",mine);document.querySelectorAll(".market").forEach(b=>b.addEventListener("click",()=>{let r=b.dataset.r;if(!s[r])return msg("❌ Ничего нет!");s.coins+=s[r]*price[r];s[r]=0;msg("💰 Продано!");save();render()}));$("bagUp").onclick=()=>{let c=s.bagSize*4;if(s.coins<c)return msg("❌ Нужно "+c+" монет");s.coins-=c;s.bagSize+=20;save();render();msg("🎒 Рюкзак увеличен!")};$("pickUp").onclick=()=>{let c=s.pickLevel*150;if(s.coins<c)return msg("❌ Нужно "+c+" монет");s.coins-=c;s.pickLevel++;s.power++;save();render();msg("⛏️ Кирка улучшена!")};setInterval(()=>{if(s.energy<s.maxEnergy){s.energy++;save();render()}},3000);load();render();
+const dailyRewards=["💰 100 🪙","💰 200 🪙","⛓️ 10 железа","💰 500 🪙","🥇 5 золота","💰 1000 🪙","💎 2 алмаза + 💰 2000 🪙"];
+function todayNumber(){return Math.floor(Date.now()/86400000);}
+function updateDailyBonus(){
+ const day=Math.min(7,Math.max(1,s.dailyDay||1)),today=todayNumber();
+ $("dailyDay").textContent="День "+day+" из 7";
+ $("dailyReward").textContent=dailyRewards[day-1];
+ if((s.dailyLast||0)===today){
+  $("dailyButton").disabled=true;
+  $("dailyButton").textContent="✅ Бонус уже получен сегодня";
+  $("dailyButton").style.background="#536b78";
+ }else{
+  $("dailyButton").disabled=false;
+  $("dailyButton").textContent="🎁 ЗАБРАТЬ БОНУС";
+  $("dailyButton").style.background="#d88920";
+ }
+}
+$("dailyButton").addEventListener("click",function(){
+ const today=todayNumber();
+ if((s.dailyLast||0)===today){
+  msg("🎁 Ты уже получил бонус сегодня!");
+  return;
+ }
+ if(s.dailyLast&&today-s.dailyLast>1)s.dailyDay=1;
+ const day=Math.min(7,Math.max(1,s.dailyDay||1));
+ if(day===1)s.coins+=100;
+ else if(day===2)s.coins+=200;
+ else if(day===3)s.iron+=10;
+ else if(day===4)s.coins+=500;
+ else if(day===5)s.gold+=5;
+ else if(day===6)s.coins+=1000;
+ else{s.coins+=2000;s.diamond+=2;}
+ s.dailyLast=today;
+ s.dailyDay=day>=7?1:day+1;
+ save();
+ render();
+ updateDailyBonus();
+ msg("🎁 Бонус дня "+day+" получен!");
+}
+);
+updateDailyBonus();
+</script></body></html>
 
 loadGame();
 
